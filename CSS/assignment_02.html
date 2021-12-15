@@ -25,15 +25,18 @@
             padding: 0 10px 16px 10px;
         }
         main{
+            position: relative;
             /*width: 100vw;*/
-            height: 500px;
-            border:  1px solid red;
+            height: 550px;
+            /*border:  1px solid red;*/
         }
         nav{
             position:absolute;
             width: 20vw;
             background-color: purple;
-            height: 500px;
+            /*height: 550px;*/
+            top: 0;
+            bottom: 0;
         }
         /*main>section:nth-child(1){
             position: absolute;
@@ -41,13 +44,23 @@
             height: 200px;
             background-color: orange;
         }*/
-       main>section {
-            position: absolute;
-            height: 200px;
+        main>section{
+            position: relative;
+            top: 0;
+            bottom: 0;
             left: 20vw;
             width: 80vw;
-            border: 1px solid red;
+            /*border: 1px solid red;*/
         }
+      /* main>section>section{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            !*height: 500px;*!
+            left: 20vw;
+            width: 80vw;
+            !*border: 1px solid red;*!
+        }*/
         /*main>section>section:nth-child(1){
             position: absolute;
             left: 20vw;
@@ -56,6 +69,7 @@
         }*/
        main>section>section>div>img{
            position: absolute;
+           height: 150px;
            width: 26.6vw;
         }
         div:nth-child(1)>img{
@@ -72,6 +86,19 @@
         div:nth-child(3)>img{
             right: 0;
             top: 0;
+        }
+        /*main>section>section:nth-child(2){
+            position: absolute;
+            border: 1px solid red;
+            height: 350px;
+            left: 20vw;
+            width: 80vw;
+            bottom: 0;
+        }*/
+        p{
+            position: absolute;
+            top:150px ;
+            bottom: 0;
         }
     </style>
 </head>
@@ -98,6 +125,12 @@
             <div><img src="assets/images/pc_01.jpg"></div>
             <div><img src="assets/images/pc_01.jpg"></div>
         </section>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid atque consectetur, consequuntur corporis
+            eos ex fugit hic ipsum nesciunt nulla placeat praesentium quam quisquam quos saepe suscipit totam velit!
+            Impedit.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium amet animi aut blanditiis commodi
+            excepturi facilis fugiat, hic maxime modi odit, quae quasi soluta tenetur voluptas. Amet eveniet explicabo
+            libero?</p>
     </section>
 </main>
 <footer></footer>
