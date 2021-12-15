@@ -25,14 +25,53 @@
             padding: 0 10px 16px 10px;
         }
         main{
+            /*width: 100vw;*/
             height: 500px;
-            border: 1px solid red;
+            border:  1px solid red;
         }
         nav{
             position:absolute;
-            width: 25vw;
+            width: 20vw;
             background-color: purple;
             height: 500px;
+        }
+        /*main>section:nth-child(1){
+            position: absolute;
+            left: 20vw;
+            height: 200px;
+            background-color: orange;
+        }*/
+       main>section {
+            position: absolute;
+            height: 200px;
+            left: 20vw;
+            width: 80vw;
+            border: 1px solid red;
+        }
+        /*main>section>section:nth-child(1){
+            position: absolute;
+            left: 20vw;
+            height: 200px;
+            background-color: red;
+        }*/
+       main>section>section>div>img{
+           position: absolute;
+           width: 26.6vw;
+        }
+        div:nth-child(1)>img{
+            left: 0;
+            top: 0;
+        }
+        div:nth-child(2)>img{
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            margin: auto;
+        }
+        div:nth-child(3)>img{
+            right: 0;
+            top: 0;
         }
     </style>
 </head>
@@ -53,7 +92,13 @@
         <ul>Contacts</ul>
         <ul>About Us</ul>
     </nav>
-    <section></section>
+    <section>
+        <section>
+            <div><img src="assets/images/pc_01.jpg"></div>
+            <div><img src="assets/images/pc_01.jpg"></div>
+            <div><img src="assets/images/pc_01.jpg"></div>
+        </section>
+    </section>
 </main>
 <footer></footer>
 </body>
