@@ -7,100 +7,121 @@
     <link href="assets/css/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <style>
-        header{
-            position: relative;
-            height: 80px;
-            box-shadow: -2px 7px 6px -3px grey;
-        }
-        header>img{
-            width: 200px;
-            margin: 11px;
-        }
-        header>ul{
-            position: absolute;
-            bottom: 0;
-            right: 30px;
-            list-style: none;
-        }
-        header>ul>li{
-            display: inline-block;
-            padding: 0 10px 16px 10px;
-        }
-        header>ul>li>a{
-            color: black;
-            text-decoration: none;
-        }
-        header> ul > li > a:hover {
-            color: red;
-        }
-        main{
-            position: relative;
+        @media all and (max-width: 320px) {
+            header {
+                position: relative;
+                height: 80px;
+                box-shadow: -2px 7px 6px -3px grey;
+            }
 
-        }
-        nav{
-            position:absolute;
-            width: 270px;
-            background-color: purple;
-            top: 0;
-            bottom: 0;
-        }
-        nav>ul{
-            color: white;
-        }
-        nav>ul>li{
-            padding-bottom: 30px;
-            list-style: none;
-        }
-        nav>ul>li>a{
-            text-decoration: none;
-            color: white;
-            padding-bottom: 4px;
-            margin-left: 13px;
-        }
-        main > nav > ul > li > a:hover {
-            color: red;
-        }
-        main>section{
-            position: relative;
-            padding: 10px;
-            margin-left: 270px;
-            min-height: 587px;
-        }
-      main>section>section{
-            position: relative;
-            height:200px;
-        }
-       main>section>section>div{
-           position: absolute;
-           height: 100%;
-           width: calc(100%/3);
-        }
-        div:nth-child(1){
-            left: 0;
-            background-image: url("assets/images/pc_01.jpg");
-            background-size: cover;
-        }
-        div:nth-child(2){
-            position: absolute;
-            left: calc(100%/3);
-            background-image: url("assets/images/pc_01.jpg");
-            background-size: cover;
-        }
-        div:nth-child(3){
-            right: 0;
-            background-image: url("assets/images/pc_01.jpg");
-            background-size: cover;
-        }
-        footer{
-            height: 60px;
-            background-color: grey;
-        }
-        footer>p{
-            margin-top: 0;
-            text-align: center;
-            padding: 20px;
-            color: white;
-            font-weight: bold;
+            header > img {
+                width: 200px;
+                margin: 11px;
+            }
+
+            header > ul {
+                position: absolute;
+                bottom: 0;
+                right: 30px;
+                list-style: none;
+            }
+
+            header > ul > li {
+                display: inline-block;
+                padding: 0 10px 16px 10px;
+            }
+
+            header > ul > li > a {
+                color: black;
+                text-decoration: none;
+            }
+
+            header > ul > li > a:hover {
+                color: red;
+            }
+
+            main {
+                position: relative;
+
+            }
+
+            nav {
+                position: absolute;
+                width: 270px;
+                background-color: purple;
+                top: 0;
+                bottom: 0;
+            }
+
+            nav > ul {
+                color: white;
+            }
+
+            nav > ul > li {
+                padding-bottom: 30px;
+                list-style: none;
+            }
+
+            nav > ul > li > a {
+                text-decoration: none;
+                color: white;
+                padding-bottom: 4px;
+                margin-left: 13px;
+            }
+
+            main > nav > ul > li > a:hover {
+                color: red;
+            }
+
+            main > section {
+                position: relative;
+                padding: 10px;
+                margin-left: 270px;
+                min-height: 587px;
+            }
+
+            main > section > section {
+                position: relative;
+                height: 200px;
+            }
+
+            main > section > section > div {
+                position: absolute;
+                height: 100%;
+                width: calc(100% / 3);
+            }
+
+            div:nth-child(1) {
+                left: 0;
+                background-image: url("assets/images/pc_01.jpg");
+                background-size: cover;
+            }
+
+            div:nth-child(2) {
+                position: absolute;
+                left: calc(100% / 3);
+                background-image: url("assets/images/pc_01.jpg");
+                background-size: cover;
+            }
+
+            div:nth-child(3) {
+                right: 0;
+                background-image: url("assets/images/pc_01.jpg");
+                background-size: cover;
+            }
+
+            footer {
+                height: 60px;
+                background-color: grey;
+            }
+
+            footer > p {
+                margin-top: 0;
+                text-align: center;
+                padding: 20px;
+                color: white;
+                font-weight: bold;
+            }
         }
     </style>
 </head>
