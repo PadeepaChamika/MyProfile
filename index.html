@@ -159,13 +159,14 @@
         }
         body>main>section:nth-child(2)>div>p{
             position: absolute;
+            font-size: 20px;
             right: 0;
             left: 565px;
             top: 200px;
             bottom: 0;
             margin: auto;
         }
-        body>main>section:nth-child(2)>div>ul>li{
+        body>main>section:nth-child(2)>div>ul:nth-child(2)>li{
             position: relative;
             color: #F58013;
             right: 0;
@@ -173,6 +174,22 @@
             top: 240px;
             bottom: 0;
             margin: auto;
+        }
+        body>main>section:nth-child(2)>div>ul:nth-child(3){
+            position: absolute;
+            bottom: 0;
+            left: 30px;
+            list-style: none;
+        }
+        body>main>section:nth-child(2)>div>ul:nth-child(3)>li{
+            display: inline-block;
+            padding: 0px 9px 95px 103px;
+        }
+        body>main>section:nth-child(2)>div>ul:nth-child(3)li>a{
+            color: black;
+            font-weight: bold;
+            font-size: 30px;
+            text-decoration: none;
         }
         body>main>section:nth-child(3){
             position: relative;
@@ -229,7 +246,7 @@
         <section></section>
         <div>
             <p>
-                My name is Padeepa Chamika. I'm a Software Engineer. I'm doing my higher studies at IJSE.
+                My name is <b>Padeepa Chamika</b>. I'm a <b>Software Engineer</b>. I'm doing my higher studies at IJSE.
             </p>
             <ul>
                 <li><pre>Age                24</pre></li>
@@ -237,6 +254,10 @@
                 <li><pre>Address            No.04,Old Polwatta Road,Vilegoda,Ambalangoda.</pre></li>
                 <li><pre>Phone              0774640621</pre></li>
                 <li><pre>Email              padeepachamika12@gmail.com</pre></li>
+            </ul>
+            <ul>
+                <li><a href="">Contact</a></li>
+                <li><a href="">CV</a></li>
             </ul>
         </div>
     </section>
