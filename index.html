@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>My Profile</title>
     <link href="assets/style/normalize.css" rel="stylesheet">
+    <link href="assets/css/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <style>
         header{
@@ -106,8 +107,11 @@
             margin: auto;
         }
         body>main>section:nth-child(1)>div:nth-child(6){
+            position: absolute;
             height: 50px;
             width: 337px;
+            left: 35px;
+            bottom: 21px;
             display: flex;
             justify-content: space-between;
         }
@@ -115,7 +119,6 @@
             position: relative;
             width: 50px;
             height: 50px;
-            bottom: -569px;
         }
         body>main>section:nth-child(2){
             position: relative;
@@ -220,17 +223,140 @@
             top: 34px;
             bottom: 0;
         }
-        body>main>section:nth-child(3)>section:nth-child(3){
+        body>main>section:nth-child(3)>div{
+            position: absolute;
+            width: 88vw;
+            height: 88vh;
+            /*background-color: red;*/
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        body>main>section:nth-child(3)>div>section{
             position: absolute;
             background-image: url("assets/images/pck3.jpg");
             background-size: cover;
             border-radius: 100%;
             width: 300px;
             height: 300px;
-            left: 526px;
+            left: 0;
             right: 0;
-            top: 182px;
+            top: 0;
             bottom: 0;
+            margin: auto;
+        }
+        html, body{
+            overflow-x: hidden;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(2){
+            position: absolute;
+            width: 16%;
+            height: 20%;
+            border-radius: 75%;
+            background-color: #F27405;
+            left: 250px;
+            top: 90px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(2)>img{
+            position: absolute;
+            border-style: none;
+            width: 70px;
+            height: 70px;
+            top: 20px;
+            left: 20px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(2)>p{
+            position: absolute;
+            border-style: none;
+            width: 85px;
+            height: 43px;
+            font-weight: bold;
+            font-size: 40px;
+            left: 91px;
+            top: -6px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(3){
+            position: absolute;
+            width: 16%;
+            height: 20%;
+            border-radius: 75%;
+            background-color: #F27405;
+            right: 250px;
+            top: 90px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(3)>img{
+            position: absolute;
+            border-style: none;
+            width: 70px;
+            height: 70px;
+            top: 24px;
+            left: 20px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(3)>p{
+            position: absolute;
+            border-style: none;
+            width: 85px;
+            height: 43px;
+            font-weight: bold;
+            font-size: 40px;
+            left: 96px;
+            top: -6px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(4){
+            position: absolute;
+            width: 16%;
+            height: 20%;
+            border-radius: 75%;
+            background-color: #F27405;
+            left: 250px;
+            bottom: 90px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(4)>img{
+            position: absolute;
+            border-style: none;
+            width: 70px;
+            height: 70px;
+            top: 22px;
+            left: 25px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(4)>p{
+            position: absolute;
+            border-style: none;
+            width: 85px;
+            height: 43px;
+            font-weight: bold;
+            font-size: 40px;
+            left: 100px;
+            top: -8px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(5){
+            position: absolute;
+            width: 16%;
+            height: 20%;
+            border-radius: 75%;
+            background-color: #F27405;
+            right: 250px;
+            bottom: 90px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(5)>img{
+            position: absolute;
+            border-style: none;
+            width: 70px;
+            height: 70px;
+            top: 15px;
+            left: 14px;
+        }
+        body>main>section:nth-child(3)>div>div:nth-child(5)>p{
+            position: absolute;
+            border-style: none;
+            width: 85px;
+            height: 43px;
+            font-weight: bold;
+            font-size: 35px;
+            left: 88px;
+            top: 2px;
         }
         body>main>section:nth-child(4){
             position: relative;
@@ -298,8 +424,25 @@
     <section>
         <section>Skills</section>
         <hr>
-        <section></section>
-        <div></div>
+        <div>
+            <section></section>
+            <div>
+                <p>Java</p>
+                <img src="assets/icon/java.png">
+            </div>
+            <div>
+                <p>CSS</p>
+                <img src="assets/icon/css.png">
+            </div>
+            <div>
+                <p>html</p>
+                <img src="assets/icon/html.png">
+            </div>
+            <div>
+                <p>MySql</p>
+                <img src="assets/icon/mysql.png">
+            </div>
+        </div>
     </section>
     <section></section>
     <section></section>
