@@ -15,7 +15,7 @@
             background-position: center;
             overflow-x: hidden;
         }
-        div>div{
+        div>div:nth-child(1){
             position: absolute;
             width: 370%;
             height: 200px;
@@ -35,10 +35,31 @@
                 transform: translateX(-3400px);
             }
         }
+        div>div:nth-child(2){
+            position: absolute;
+            width: 500%;
+            height: 155px;
+            display: block;
+            background-image: url("assets/images/city.png");
+            left: 0;
+            right: 0;
+            bottom: 200px;
+            z-index: 1;
+            background-repeat: repeat-x;
+            animation-name: road;
+            animation-duration: 20s;
+            animation-iteration-count: infinite;
+        }
+        @keyframes city {
+            100%{
+                transform: translateX(-1400px);
+            }
+        }
     </style>
 </head>
 <body>
 <div>
+    <div></div>
     <div></div>
 </div>
 </body>
