@@ -54,11 +54,22 @@
             position: absolute;
             font-weight: bold;
             font-size: 90px;
-            left: 0;
-            right: 433px;
+            left: 406px;
+            /*right: 433px;*/
             top:  -72px;
             bottom: 174px;
             margin: auto;
+            animation-name: helloleftToRight;
+            animation-duration: 10s;
+            animation-iteration-count: 1;
+        }
+        @keyframes helloleftToRight {
+            from{
+                left: -300px;
+            }
+            to{
+                left: 406px;
+            }
         }
         body>main>section:nth-child(1)>section:nth-child(2){
             width: 468px;
@@ -71,7 +82,9 @@
             top:  0;
             bottom: -425px;
             margin: auto;
+
         }
+
         body>main>section:nth-child(1)>hr{
             width: 124px;
             height: 1px;
@@ -90,12 +103,24 @@
             font-weight: bold;
             font-size: 33px;
             color: #F27405;
-            left: 673px;
-            right: 0;
+            /*left: 673px;*/
+            right: 147px;
             top:  0;
             bottom: -496px;
             margin: auto;
+            animation-name: softwarerightToLeft;
+            animation-duration: 10s;
+            animation-iteration-count: 1;
         }
+        @keyframes softwarerightToLeft {
+            from{
+                right: -380px;
+            }
+            to{
+                right: 147px;
+            }
+        }
+
         body>main>section:nth-child(1)>div:nth-child(5){
             width: 600px;
             height: 650px;
@@ -279,6 +304,11 @@
             left: 250px;
             top: 90px;
         }
+        #skills>div>div:hover{
+            transform: scale(1.2);
+            transition: transform 0.5s;
+            cursor: pointer;
+        }
         body>main>section:nth-child(3)>div>div:nth-child(2)>img{
             position: absolute;
             border-style: none;
@@ -438,6 +468,7 @@
             bottom: 0;
             margin: auto;
         }
+        
         body>main>section:nth-child(4)>div>div:nth-child(2)>img{
             position: absolute;
             border-style: none;
