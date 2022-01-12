@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case_05</title>
+    <link href="assets/style/normalize.css" rel="stylesheet">
+    <link href="assets/css/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <style>
+        section{
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            width: 240px;
+            height: 400px;
+            justify-content: space-evenly;
+            top: 90px;
+            right: 200px;
+        }
+        section>div{
+            position: relative;
+            height: 40px;
+            left: 0;
+            background: #11C5D4;
+            color: black;
+            box-shadow: 1px 1px 1px 1px;
+            transition: all 1s;
+        }
+        section>div>h3{
+            margin: 0;
+            display: inline-block;
+            padding: 10px;
+        }
+        section>div>i{
+            position: absolute;
+            font-size: 25px;
+            right: 15px;
+            top: 8px;
+        }
+        section>div:hover{
+            background: #14F7A1;
+            cursor: pointer;
+            transition: all 1s;
+            left: 190px;
+        }
+    </style>
+</head>
+<body>
+<section>
+    <div>
+        <h3>Menu One</h3>
+        <i class="far fa-address-book"></i>
+    </div>
+    <div>
+        <h3>Menu Two</h3>
+        <i class="fas fa-ambulance"></i>
+    </div>
+    <div>
+        <h3>Menu Three</h3>
+        <i class="fas fa-book-medical"></i>
+    </div>
+    <div>
+        <h3>Menu Four</h3>
+        <i class="fas fa-database"></i>
+    </div>
+    <div>
+        <h3>Menu Five</h3>
+        <i class="fas fa-cart-plus"></i>
+    </div>
+</section>
+</body>
+</html>
