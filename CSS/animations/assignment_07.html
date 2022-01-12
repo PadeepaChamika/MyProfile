@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case_07</title>
+    <link href="assets/style/normalize.css" rel="stylesheet">
+    <link href="assets/css/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet">
+    <style>
+        section {
+            position: absolute;
+            width: 150px;
+            height: 50px;
+            background-color: #111FD4;
+            border-radius: 15%;
+            animation-name: case_07;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+        }
+
+            @keyframes case_07 {
+                0%{
+                    left: 0;
+                    top: 0;
+                    background-color: #111FD4;
+                    transform: rotate(0deg);
+                }
+                25%{
+                    left: 1200px;
+                    top: 0;
+                    background-color: #1E85EB;
+                    transform: rotate(180deg);
+                }
+                50%{
+                    left: 1200px;
+                    top: 545px;
+                    background-color: #11C5D4;
+                    transform: rotate(360deg);
+                }
+                75%{
+                    left: 0;
+                    top: 545px;
+                    background-color: #14F7A1;
+                    transform: rotate(180deg);
+                }
+                100%{
+                    left: 0;
+                    top: 0;
+                    background-color: #6413F5;
+                    transform: rotate(360deg);
+                }
+            }
+    </style>
+</head>
+<body>
+<section></section>
+</body>
+</html>
