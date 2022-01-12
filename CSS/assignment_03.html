@@ -13,8 +13,8 @@
         }
         body>main>section:nth-child(1){
             position: fixed;
-            width: 300px;
-            height: 300px;
+            width: 320px;
+            height: 320px;
             border-radius: 100%;
             border: 15px solid grey;
             z-index: 10;
@@ -26,16 +26,36 @@
         }
         body>main>section>section{
             position: absolute;
-            width: 300px;
-            height: 300px;
+            width: 310px;
+            height: 310px;
             border-radius: 100%;
             border: 14px solid red;
             z-index: 10;
-            left: -8px;
+            left: -10px;
             right: 0;
-            top: 3px;
+            top: 0;
             bottom: 0;
             margin: auto;
+        }
+        body>main>section>div{
+            position: absolute;
+            width: 305px;
+            height: 305px;
+            border-radius: 100%;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+        body>main>section:nth-child(2)>div{
+            background-color: purple;
+        }
+        body>main>section:nth-child(3)>div{
+            background-color: aqua;
+        }
+        body>main>section:nth-child(4)>div{
+            background-color: orange;
         }
     </style>
 </head>
@@ -45,13 +65,19 @@
         <section></section>
     </section>
     <section>
-        <div></div>
+        <div>
+            <p>Hello</p>
+        </div>
     </section>
     <section>
-        <div></div>
+        <div>
+            <p>Welcome To</p>
+        </div>
     </section>
     <section>
-        <div></div>
+        <div>
+            <p>Institute Of Software Engineering</p>
+        </div>
     </section>
 </main>
 </body>
