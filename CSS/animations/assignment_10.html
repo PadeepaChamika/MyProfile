@@ -55,12 +55,35 @@
                 transform: translateX(-1400px);
             }
         }
+        .car{
+            position: absolute;
+            width: 400px;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        .car>img{
+            width: 100%;
+        }
+        /*div>div:nth-child(3){
+            position: absolute;
+            width: 400px;
+            left: 50%;
+            bottom: 100px;
+            transform: translateX(-50%);
+            z-index: 2;
+        }
+        div>div:nth-child(3)>img{
+            width: 100%;
+        }*/
     </style>
 </head>
 <body>
 <div>
     <div></div>
     <div></div>
+    <div class="car"><img src="assets/images/car.png"></div>
 </div>
 </body>
 </html>
