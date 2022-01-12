@@ -810,6 +810,17 @@
             font-size: 54px;
             left: 16px;
             top: 0;
+            animation-name: hello;
+            animation-duration: 7s;
+            animation-iteration-count: 1;
+        }
+        @keyframes hello {
+            from{
+                left: 0;
+            }
+            to{
+                left: 16px;
+            }
         }
         body>main>section:nth-child(1)>section:nth-child(2){
             font-size: 40px;
@@ -817,10 +828,23 @@
             top: -460px;
         }
         body>main>section:nth-child(1)>section:nth-child(3){
-            font-size: 30px;
+            font-size: 16px;
             left: 116px;
             top: -416px;
+            z-index: 1200;
+            animation-name: software;
+            animation-duration: 7s;
+            animation-iteration-count: 1;
         }
+        @keyframes software {
+            from{
+                left: 0;
+            }
+            to{
+                left: 116px;
+            }
+        }
+
         body>main>section:nth-child(1)>hr{
             display: inline-block;
         }
@@ -828,7 +852,7 @@
             width: 340px;
             left: -21px;
             right: 0;
-            bottom: 246px;
+            bottom: 148px;
         }
         body>main>section:nth-child(1)>div:nth-child(6){
             width: 275px;
