@@ -15,3 +15,16 @@
     width: 25%;
     background-color: #6fdaeb;
 }
+.thirdSection{
+    height: 100vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
+.table{
+    color: white;
+}
+.fourthSection{
+    height: 100vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
