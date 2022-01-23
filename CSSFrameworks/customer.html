@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg" style="background-color: #1C66A6;">
+        <div class="container-fluid rounded" >
+            <a class="navbar-brand" href="#">Nihal Food City</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="customer.html">Customer</a>
+                    <a class="nav-link" href="item.html">Items</a>
+                    <a class="nav-link" href="#">Orders</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="secondSection">
+    <h1 class="sectionName">Customer</h1>
+    <label for="customerDataLists" class="form-label">Customer ID</label>
+    <input class="form-control" list="datalistOptions" id="customerDataLists" placeholder="Type to search...">
+    <datalist id="datalistOptions">
+        <option value="C001">
+        <option value="C002">
+        <option value="C003">
+        <option value="C004">
+        <option value="C005">
+    </datalist>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Age</th>
+            <th scope="col">Address</th>
+            <th scope="col">Salary</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">C001</th>
+            <td>Kamal</td>
+            <td>28</td>
+            <td>Galle</td>
+            <td>35000</td>
+        </tr>
+        <tr>
+            <th scope="row">C002</th>
+            <td>Nimal</td>
+            <td>25</td>
+            <td>Galle</td>
+            <td>30000</td>
+        </tr>
+        <tr>
+            <th scope="row">C003</th>
+            <td>Sunil</td>
+            <td>27</td>
+            <td>Matara</td>
+            <td>40000</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>

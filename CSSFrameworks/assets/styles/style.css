@@ -31,3 +31,6 @@
     background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
     border: 2px solid white;
 }
+.sectionName{
+    color: white;
+}

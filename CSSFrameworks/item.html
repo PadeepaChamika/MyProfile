@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg" style="background-color: #1C66A6;">
+        <div class="container-fluid rounded" >
+            <a class="navbar-brand" href="#">Nihal Food City</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="customer.html">Customer</a>
+                    <a class="nav-link" href="item.html">Items</a>
+                    <a class="nav-link" href="#">Orders</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="thirdSection">
+    <h1 class="sectionName">Item</h1>
+    <label for="itemDataLists" class="form-label">Item ID</label>
+    <input class="form-control" list="datalistOption" id="itemDataLists" placeholder="Type to search...">
+    <datalist id="datalistOption">
+        <option value="I001">
+        <option value="I002">
+        <option value="I003">
+        <option value="I004">
+        <option value="I005">
+    </datalist>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Item ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Unit Price(Rs.)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">I001</th>
+            <td>Sudu Samba</td>
+            <td>100kg</td>
+            <td>113</td>
+        </tr>
+        <tr>
+            <th scope="row">I002</th>
+            <td>Nadu</td>
+            <td>50kg</td>
+            <td>180</td>
+        </tr>
+        <tr>
+            <th scope="row">I003</th>
+            <td>Basmathi</td>
+            <td>60kg</td>
+            <td>230</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
