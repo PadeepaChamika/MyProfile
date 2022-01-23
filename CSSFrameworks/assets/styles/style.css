@@ -15,6 +15,9 @@
     width: 25%;
     background-color: #6fdaeb;
 }
+.modal-body{
+    background:linear-gradient(to right, #0f0c29, #302b63, #24243e);
+}
 .thirdSection{
     height: 100vh;
     background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
