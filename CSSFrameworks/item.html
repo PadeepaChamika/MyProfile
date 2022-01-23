@@ -144,6 +144,59 @@
         </div>
     </div>
 
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteItem">
+        Delete Item
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteItem" tabindex="-1" aria-labelledby="deleteItemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteItemLabel">Delete Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="validationServer09" class="form-label">Item ID</label>
+                            <input type="text" class="form-control is-valid" id="validationServer09" value="Mark" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer10" class="form-label">Item Name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer10" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer11" class="form-label">Qty</label>
+                            <input type="text" class="form-control is-valid" id="validationServer11" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer12" class="form-label">Unit Price(Rs.)</label>
+                            <input type="text" class="form-control is-valid" id="validationServer12" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <table class="table">
         <thead>
         <tr>
