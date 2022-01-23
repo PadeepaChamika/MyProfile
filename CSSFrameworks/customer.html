@@ -88,9 +88,6 @@
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Add New Customer</button>
-                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -151,14 +148,71 @@
                                 Looks good!
                             </div>
                         </div>
-                        <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Update Customer</button>
-                        </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     <button type="button" class="btn btn-primary">Save Customer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteCustomer">
+        Delete Customer
+    </button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="deleteCustomerLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteCustomerLabel">Add New Customer</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="validationServer11" class="form-label">Customer ID</label>
+                            <input type="text" class="form-control is-valid" id="validationServer11" value="Mark" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer12" class="form-label">Customer Name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer12" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer13" class="form-label">Age</label>
+                            <input type="text" class="form-control is-valid" id="validationServer13" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer14" class="form-label">Address</label>
+                            <input type="text" class="form-control is-valid" id="validationServer14" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <label for="validationServer15" class="form-label">Salary(Rs.)</label>
+                            <input type="text" class="form-control is-valid" id="validationServer15" value="Otto" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Delete Customer</button>
                 </div>
             </div>
         </div>
