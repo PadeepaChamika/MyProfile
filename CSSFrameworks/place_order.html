@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Place Order Page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg" style="background-color: #1C66A6;">
+        <div class="container-fluid rounded" >
+            <a class="navbar-brand" href="#">Nihal Food City</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="customer.html">Customer</a>
+                    <a class="nav-link" href="item.html">Items</a>
+                    <a class="nav-link" href="place_order.html">Orders</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="fourthSection">
+    <h1 class="sectionName">Place Order</h1>
+    <form class="row g-3">
+        <div class="col-md-2">
+            <label for="validationDefault04" class="form-label">Customer ID</label>
+            <select class="form-select" id="validationDefault01" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Name</label>
+            <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+        </div>
+        <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Address</label>
+            <input type="text" class="form-control" id="validationDefault03" value="Otto" required>
+        </div>
+        <div class="col-md-2">
+            <label for="validationDefault02" class="form-label">Contact</label>
+            <input type="text" class="form-control" id="validationDefault06" value="Otto" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault04" class="form-label">Item ID</label>
+            <select class="form-select" id="validationDefault07" required>
+                <option selected disabled value="">Choose...</option>
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault03" class="form-label">Name</label>
+            <input type="text" class="form-control" id="validationDefault04" required>
+        </div>
+        <div class="col-md-3 col-12 col-lg-6">
+            <label for="validationDefault03" class="form-label">Qty</label>
+            <input type="text" class="form-control" id="validationDefault08" required>
+        </div>
+        <div class="col-md-3">
+            <label for="validationDefault05" class="form-label">Price(Rs.)</label>
+            <input type="text" class="form-control" id="validationDefault05" required>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary" type="submit">Place Order</button>
+        </div>
+    </form>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Customer ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Item ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Total</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">C001</th>
+            <td>Kamal</td>
+            <td>Galle</td>
+            <td>077-3783823</td>
+            <td>I001</td>
+            <td>Sudu Samba</td>
+            <td>5</td>
+            <td>3000</td>
+        </tr>
+        <tr>
+            <th scope="row">C002</th>
+            <td>Nimal</td>
+            <td>Galle</td>
+            <td>077-5683823</td>
+            <td>I002</td>
+            <td>Nadu</td>
+            <td>5</td>
+            <td>5000</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+</body>
+</html>
