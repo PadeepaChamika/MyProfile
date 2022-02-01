@@ -1,0 +1,65 @@
+.firstSection{
+    position: relative;
+    height: 91vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
+.name{
+    position: absolute;
+    width: max-content;
+    height: max-content;
+    color: #12196a;
+    box-shadow: 10px 10px 10px 10px gold;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    font-size: 131px;
+}
+.image{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url("../images/shopping-business-retail-shopping-cart.jpg");
+    background-position: center;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+}
+.fs-1{
+    color: white;
+}
+.secondSection{
+    height: 100vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
+.btn-primary{
+    left: 0;
+}
+.modal-body{
+    background:linear-gradient(to right, #0f0c29, #302b63, #24243e);
+}
+.thirdSection{
+    height: 100vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
+.form-label{
+    color: white;
+}
+.table{
+    color: white;
+}
+.fourthSection{
+    height: 100vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
+.sectionName{
+    color: white;
+}

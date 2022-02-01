@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Page</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/styles/style.css">
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light shadow-lg" style="background-color: #1C66A6;">
+        <div class="container-fluid rounded" >
+            <a class="navbar-brand" href="#">Nihal Food City</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    <a class="nav-link" href="customer.html">Customer</a>
+                    <a class="nav-link" href="item.html">Items</a>
+                    <a class="nav-link" href="place_order.html">Orders</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<section class="thirdSection">
+    <h1 class="sectionName">Item</h1>
+    <div class="container-fluid">
+        <div class="row d-flex flex-row justify-content-around">
+            <div class="col-10 col-md-5 col-lg-5 ">
+                <label for="customerDataLists" class="form-label">Customer ID</label>
+                <input class="form-control" list="datalistOptions" id="customerDataLists" placeholder="Type to search...">
+                <datalist id="datalistOptions">
+                    <option value="I001">
+                    <option value="I002">
+                    <option value="I003">
+                    <option value="I004">
+                    <option value="I005">
+                </datalist>
+            </div>
+            <div class="col-10 col-md-5 col-lg-5 ">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewItem">
+                    Add New Item
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateItem">
+                    Update Item
+                </button>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteItem">
+                    Delete Item
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="addNewItem" tabindex="-1" aria-labelledby="addNewItemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addNewItemLabel">Add New Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="validationServer01" class="form-label">Item ID</label>
+                            <input type="text" class="form-control is-valid" id="validationServer01" value="I001" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer02" class="form-label">Item Name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer02" value="Sudu Samba" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer03" class="form-label">Qty</label>
+                            <input type="text" class="form-control is-valid" id="validationServer03" value="100kg" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer04" class="form-label">Unit Price(Rs.)</label>
+                            <input type="text" class="form-control is-valid" id="validationServer04" value="113" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Customer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="updateItem" tabindex="-1" aria-labelledby="updateItemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateItemLabel">Update Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="validationServer05" class="form-label">Item ID</label>
+                            <input type="text" class="form-control is-valid" id="validationServer05" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer06" class="form-label">Item Name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer06" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer07" class="form-label">Qty</label>
+                            <input type="text" class="form-control is-valid" id="validationServer07" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer08" class="form-label">Unit Price(Rs.)</label>
+                            <input type="text" class="form-control is-valid" id="validationServer08" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="deleteItem" tabindex="-1" aria-labelledby="deleteItemLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteItemLabel">Delete Item</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form class="row g-3">
+                        <div class="col-md-6">
+                            <label for="validationServer09" class="form-label">Item ID</label>
+                            <input type="text" class="form-control is-valid" id="validationServer09" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer10" class="form-label">Item Name</label>
+                            <input type="text" class="form-control is-valid" id="validationServer10" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer11" class="form-label">Qty</label>
+                            <input type="text" class="form-control is-valid" id="validationServer11" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="validationServer12" class="form-label">Unit Price(Rs.)</label>
+                            <input type="text" class="form-control is-valid" id="validationServer12" value="" required>
+                            <div class="valid-feedback">
+                                Looks good!
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Delete Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Item ID</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Qty</th>
+            <th scope="col">Unit Price(Rs.)</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">I001</th>
+            <td>Sudu Samba</td>
+            <td>100kg</td>
+            <td>113</td>
+        </tr>
+        <tr>
+            <th scope="row">I002</th>
+            <td>Nadu</td>
+            <td>50kg</td>
+            <td>180</td>
+        </tr>
+        <tr>
+            <th scope="row">I003</th>
+            <td>Basmathi</td>
+            <td>60kg</td>
+            <td>230</td>
+        </tr>
+        </tbody>
+    </table>
+</section>
+<script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+</html>
