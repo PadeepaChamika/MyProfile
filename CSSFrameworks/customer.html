@@ -56,46 +56,46 @@
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="addNewCustomer" tabindex="-1" aria-labelledby="addNewCustomerLabel" aria-hidden="true">
+    <div aria-hidden="true" aria-labelledby="addNewCustomerLabel" class="modal fade" id="addNewCustomer" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addNewCustomerLabel">Add New Customer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
                 </div>
                 <div class="modal-body">
                     <form>
-                       <div class="col-md-6 col-lg-6 col-12">
-                            <label for="validationServer01" class="form-label">Customer ID</label>
-                            <input type="text" class="form-control is-valid" id="validationServer01" value="C001" required>
+                        <div class="col-md-6 col-lg-6 col-12">
+                            <label class="form-label" for="txtCustomerId">Customer ID</label>
+                            <input class="form-control is-valid" id="txtCustomerId" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
-                            <label for="validationServer02" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer02" value="Kamal" required>
+                            <label class="form-label" for="txtCustomerName">Customer Name</label>
+                            <input class="form-control is-valid" id="txtCustomerName" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
-                            <label for="validationServer03" class="form-label">Age</label>
-                            <input type="text" class="form-control is-valid" id="validationServer03" value="28" required>
+                            <label class="form-label" for="txtCustomerAge">Age</label>
+                            <input class="form-control is-valid" id="txtCustomerAge" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
-                            <label for="validationServer04" class="form-label">Address</label>
-                            <input type="text" class="form-control is-valid" id="validationServer04" value="Galle" required>
+                            <label class="form-label" for="txtAddress">Address</label>
+                            <input class="form-control is-valid" id="txtAddress" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
-                            <label for="validationServer05" class="form-label">Salary(Rs.)</label>
-                            <input type="text" class="form-control is-valid" id="validationServer05" value="30000" required>
+                            <label class="form-label" for="txtSalary">Salary(Rs.)</label>
+                            <input class="form-control is-valid" id="txtSalary" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -103,54 +103,54 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save Customer</button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary" id="btnSaveCustomer" type="button">Save Customer</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="updateCustomer" tabindex="-1" aria-labelledby="updateCustomerLabel" aria-hidden="true">
+    <div aria-hidden="true" aria-labelledby="updateCustomerLabel" class="modal fade" id="updateCustomer" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateCustomerLabel">Add New Customer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <h5 class="modal-title" id="updateCustomerLabel">Update Customer</h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <label for="validationServer06" class="form-label">Customer ID</label>
-                            <input type="text" class="form-control is-valid" id="validationServer06" value="C002" required>
+                            <label class="form-label" for="validationServer06">Customer ID</label>
+                            <input class="form-control is-valid" id="validationServer06" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationServer07" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer07" value="Nimal" required>
+                            <label class="form-label" for="validationServer07">Customer Name</label>
+                            <input class="form-control is-valid" id="validationServer07" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationServer08" class="form-label">Age</label>
-                            <input type="text" class="form-control is-valid" id="validationServer08" value="25" required>
+                            <label class="form-label" for="validationServer08">Age</label>
+                            <input class="form-control is-valid" id="validationServer08" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationServer09" class="form-label">Address</label>
-                            <input type="text" class="form-control is-valid" id="validationServer09" value="Galle" required>
+                            <label class="form-label" for="validationServer09">Address</label>
+                            <input class="form-control is-valid" id="validationServer09" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="validationServer10" class="form-label">Salary(Rs.)</label>
-                            <input type="text" class="form-control is-valid" id="validationServer10" value="38000" required>
+                            <label class="form-label" for="validationServer10">Salary(Rs.)</label>
+                            <input class="form-control is-valid" id="validationServer10" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -158,54 +158,54 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save Customer</button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary" type="button">Save Customer</button>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Modal -->
-    <div class="modal fade" id="deleteCustomer" tabindex="-1" aria-labelledby="deleteCustomerLabel" aria-hidden="true">
+    <div aria-hidden="true" aria-labelledby="deleteCustomerLabel" class="modal fade" id="deleteCustomer" tabindex="-1">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="deleteCustomerLabel">Add New Customer</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
                 </div>
                 <div class="modal-body">
                     <form class="row g-3">
                         <div class="col-md-6">
-                            <label for="validationServer11" class="form-label">Customer ID</label>
-                            <input type="text" class="form-control is-valid" id="validationServer11" value="C003" required>
+                            <label class="form-label" for="validationServer11">Customer ID</label>
+                            <input class="form-control is-valid" id="validationServer11" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationServer12" class="form-label">Customer Name</label>
-                            <input type="text" class="form-control is-valid" id="validationServer12" value="Sunil" required>
+                            <label class="form-label" for="validationServer12">Customer Name</label>
+                            <input class="form-control is-valid" id="validationServer12" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationServer13" class="form-label">Age</label>
-                            <input type="text" class="form-control is-valid" id="validationServer13" value="27" required>
+                            <label class="form-label" for="validationServer13">Age</label>
+                            <input class="form-control is-valid" id="validationServer13" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="validationServer14" class="form-label">Address</label>
-                            <input type="text" class="form-control is-valid" id="validationServer14" value="Matara" required>
+                            <label class="form-label" for="validationServer14">Address</label>
+                            <input class="form-control is-valid" id="validationServer14" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <label for="validationServer15" class="form-label">Salary(Rs.)</label>
-                            <input type="text" class="form-control is-valid" id="validationServer15" value="40000" required>
+                            <label class="form-label" for="validationServer15">Salary(Rs.)</label>
+                            <input class="form-control is-valid" id="validationServer15" required type="text">
                             <div class="valid-feedback">
                                 Looks good!
                             </div>
@@ -213,8 +213,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Delete Customer</button>
+                    <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                    <button class="btn btn-primary" type="button">Delete Customer</button>
                 </div>
             </div>
         </div>
@@ -230,31 +230,31 @@
             <th scope="col">Salary</th>
         </tr>
         </thead>
-        <tbody>
-        <tr>
-            <th scope="row">C001</th>
-            <td>Kamal</td>
-            <td>28</td>
-            <td>Galle</td>
-            <td>35000</td>
-        </tr>
-        <tr>
-            <th scope="row">C002</th>
-            <td>Nimal</td>
-            <td>25</td>
-            <td>Galle</td>
-            <td>30000</td>
-        </tr>
-        <tr>
-            <th scope="row">C003</th>
-            <td>Sunil</td>
-            <td>27</td>
-            <td>Matara</td>
-            <td>40000</td>
-        </tr>
+        <tbody id="customerTable">
         </tbody>
     </table>
 </section>
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+<script>
+    $("#btnSaveCustomer").click(function () {
+        let custId = $("#txtCustomerId").val();
+        let custName = $("#txtCustomerName").val();
+        let custAge = $("#txtCustomerAge").val();
+        let custAddress = $("#txtAddress").val();
+        let custSalary = $("#txtSalary").val();
+
+        let tableRow = `<tr><td>${custId}</td><td>${custName}</td><td>${custAge}</td><td>${custAddress}</td><td>${custSalary}</td></tr>`;
+
+        $("#customerTable").append(tableRow);
+
+        $("#txtCustomerId").val("");
+        $("#txtCustomerName").val("");
+        $("#txtCustomerAge").val("");
+        $("#txtAddress").val("");
+        $("#txtSalary").val("");
+
+    });
+</script>
 </body>
 </html>

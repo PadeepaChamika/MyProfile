@@ -221,9 +221,11 @@
 <script>
     $("#btnSaveItem").click(function () {
         let itemId = $("#txtItemId").val();
-        let itemName = $("txtItemName").val();
-        let itemQty = $("txtQty").val();
-        let itemUnitPrice = $("txtUnitPrice").val();
+        let itemName = $("#txtItemName").val();
+        let itemQty = $("#txtQty").val();
+        let itemUnitPrice = $("#txtUnitPrice").val();
+
+        console.log(itemId,itemName,itemQty,itemUnitPrice);
 
         let tableRow = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemQty}</td><td>${itemUnitPrice}</td></tr>>`;
 
