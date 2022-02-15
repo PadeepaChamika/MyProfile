@@ -16,15 +16,15 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                    <a class="nav-link" href="customer.html">Customer</a>
-                    <a class="nav-link" href="item.html">Items</a>
-                    <a class="nav-link" href="place_order.html">Orders</a>
+                    <a class="nav-link active" id="home_page" aria-current="page" style="cursor: pointer">Home</a>
+                    <a class="nav-link" id="customer_page" style="cursor: pointer" >Customer</a>
+                    <a class="nav-link" id="item_page" style="cursor: pointer" >Items</a>
+                    <a class="nav-link" id="place_order_page" style="cursor: pointer" >Orders</a>
                 </div>
             </div>
         </div>
     </nav>
-<main>
+<main id="home">
     <section class="firstSection">
         <div class="image">
             <h1 class="name">Nihal Food City</h1>
@@ -32,6 +32,558 @@
     </section>
 </main>
 
+<!--Customer Section-->
+    <section class="secondSection" id="customer" style="display: none">
+        <h1 class="sectionName">Customer</h1>
+        <div class="container-fluid">
+            <div class="row d-flex flex-row justify-content-around">
+                <div class="col-10 col-md-5 col-lg-5 ">
+                    <label class="form-label" for="customerDataLists">Customer ID</label>
+                    <input class="form-control" id="customerDataLists" list="datalistOptions"
+                           placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        <option value="C001">
+                        <option value="C002">
+                        <option value="C003">
+                        <option value="C004">
+                        <option value="C005">
+                    </datalist>
+                </div>
+                <div class="col-10 col-md-5 col-lg-5 ">
+                    <button class="btn btn-primary" data-bs-target="#addNewCustomer" data-bs-toggle="modal" type="button">
+                        Add New Customer
+                    </button>
+                    <button class="btn btn-primary" data-bs-target="#updateCustomer" data-bs-toggle="modal" type="button">
+                        Update Customer
+                    </button>
+                    <button class="btn btn-primary" data-bs-target="#deleteCustomer" data-bs-toggle="modal" type="button">
+                        Delete Customer
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div aria-hidden="true" aria-labelledby="addNewCustomerLabel" class="modal fade" id="addNewCustomer" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addNewCustomerLabel">Add New Customer</h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label class="form-label" for="txtCustomerId">Customer ID</label>
+                                <input class="form-control is-valid" id="txtCustomerId" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label class="form-label" for="txtCustomerName">Customer Name</label>
+                                <input class="form-control is-valid" id="txtCustomerName" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label class="form-label" for="txtCustomerAge">Age</label>
+                                <input class="form-control is-valid" id="txtCustomerAge" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label class="form-label" for="txtAddress">Address</label>
+                                <input class="form-control is-valid" id="txtAddress" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label class="form-label" for="txtSalary">Salary(Rs.)</label>
+                                <input class="form-control is-valid" id="txtSalary" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" id="btnSaveCustomer" type="button">Save Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div aria-hidden="true" aria-labelledby="updateCustomerLabel" class="modal fade" id="updateCustomer" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateCustomerLabel">Update Customer</h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCusId">Customer ID</label>
+                                <input class="form-control is-valid" id="txtCusId" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCusName">Customer Name</label>
+                                <input class="form-control is-valid" id="txtCusName" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCusAge">Age</label>
+                                <input class="form-control is-valid" id="txtCusAge" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCusAddress">Address</label>
+                                <input class="form-control is-valid" id="txtCusAddress" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label" for="txtCusSalary">Salary(Rs.)</label>
+                                <input class="form-control is-valid" id="txtCusSalary" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" type="button">Update Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div aria-hidden="true" aria-labelledby="deleteCustomerLabel" class="modal fade" id="deleteCustomer" tabindex="-1">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteCustomerLabel">Add New Customer</h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCustId">Customer ID</label>
+                                <input class="form-control is-valid" id="txtCustId" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCustName">Customer Name</label>
+                                <input class="form-control is-valid" id="txtCustName" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCustAge">Age</label>
+                                <input class="form-control is-valid" id="txtCustAge" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label" for="txtCustAddress">Address</label>
+                                <input class="form-control is-valid" id="txtCustAddress" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label" for="txtCustSalary">Salary(Rs.)</label>
+                                <input class="form-control is-valid" id="txtCustSalary" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal" type="button">Close</button>
+                        <button class="btn btn-primary" type="button">Delete Customer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Customer Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Age</th>
+                <th scope="col">Address</th>
+                <th scope="col">Salary</th>
+            </tr>
+            </thead>
+            <tbody id="customerTable">
+            </tbody>
+        </table>
+    </section>
+
+<!--Item Section-->
+    <section class="thirdSection" id="item" style="display: none">
+        <h1 class="sectionName">Item</h1>
+        <div class="container-fluid">
+            <div class="row d-flex flex-row justify-content-around">
+                <div class="col-10 col-md-5 col-lg-5 ">
+                    <label for="customerDataLists" class="form-label">Customer ID</label>
+                    <input class="form-control" list="datalistOptions" id="itemDataLists" placeholder="Type to search...">
+                    <datalist id="datalistOption">
+                        <option value="I001">
+                        <option value="I002">
+                        <option value="I003">
+                        <option value="I004">
+                        <option value="I005">
+                    </datalist>
+                </div>
+                <div class="col-10 col-md-5 col-lg-5 ">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addNewItem">
+                        Add New Item
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateItem">
+                        Update Item
+                    </button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteItem">
+                        Delete Item
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="addNewItem" tabindex="-1" aria-labelledby="addNewItemLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addNewItemLabel">Add New Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label for="txtItemId" class="form-label">Item ID</label>
+                                <input type="text" class="form-control is-valid" id="txtItemId" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label for="txtItemName" class="form-label">Item Name</label>
+                                <input type="text" class="form-control is-valid" id="txtItemName" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label for="txtQty" class="form-label">Qty</label>
+                                <input type="text" class="form-control is-valid" id="txtQty" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-6 col-12">
+                                <label for="txtUnitPrice" class="form-label">Unit Price(Rs.)</label>
+                                <input type="text" class="form-control is-valid" id="txtUnitPrice" required type="text">
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="btnSaveItem">Save Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="updateItem" tabindex="-1" aria-labelledby="updateItemLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="updateItemLabel">Update Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="validationServer05" class="form-label">Item ID</label>
+                                <input type="text" class="form-control is-valid" id="validationServer05" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationServer06" class="form-label">Item Name</label>
+                                <input type="text" class="form-control is-valid" id="validationServer06" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationServer07" class="form-label">Qty</label>
+                                <input type="text" class="form-control is-valid" id="validationServer07" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationServer08" class="form-label">Unit Price(Rs.)</label>
+                                <input type="text" class="form-control is-valid" id="validationServer08" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteItem" tabindex="-1" aria-labelledby="deleteItemLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="deleteItemLabel">Delete Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="row g-3">
+                            <div class="col-md-6">
+                                <label for="validationServer09" class="form-label">Item ID</label>
+                                <input type="text" class="form-control is-valid" id="validationServer09" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationServer10" class="form-label">Item Name</label>
+                                <input type="text" class="form-control is-valid" id="validationServer10" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationServer11" class="form-label">Qty</label>
+                                <input type="text" class="form-control is-valid" id="validationServer11" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationServer12" class="form-label">Unit Price(Rs.)</label>
+                                <input type="text" class="form-control is-valid" id="validationServer12" value="" required>
+                                <div class="valid-feedback">
+                                    Looks good!
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Delete Item</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Item ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Unit Price(Rs.)</th>
+            </tr>
+            </thead>
+            <tbody id="itemTable">
+            </tbody>
+        </table>
+    </section>
+
+    <section class="fourthSection" id="place_order" style="display: none">
+        <h1 class="sectionName">Place Order</h1>
+        <form class="row g-3">
+            <div class="col-md-2">
+                <label for="validationDefault04" class="form-label">Customer ID</label>
+                <select class="form-select" id="validationDefault01" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Name</label>
+                <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
+            </div>
+            <div class="col-md-4">
+                <label for="validationDefault02" class="form-label">Address</label>
+                <input type="text" class="form-control" id="validationDefault03" value="Otto" required>
+            </div>
+            <div class="col-md-2">
+                <label for="validationDefault02" class="form-label">Contact</label>
+                <input type="text" class="form-control" id="validationDefault06" value="Otto" required>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault04" class="form-label">Item ID</label>
+                <select class="form-select" id="validationDefault07" required>
+                    <option selected disabled value="">Choose...</option>
+                    <option>...</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault03" class="form-label">Name</label>
+                <input type="text" class="form-control" id="validationDefault04" required>
+            </div>
+            <div class="col-md-3 col-12 col-lg-6">
+                <label for="validationDefault03" class="form-label">Qty</label>
+                <input type="text" class="form-control" id="validationDefault08" required>
+            </div>
+            <div class="col-md-3">
+                <label for="validationDefault05" class="form-label">Price(Rs.)</label>
+                <input type="text" class="form-control" id="validationDefault05" required>
+            </div>
+            <div class="col-12">
+                <button class="btn btn-primary" type="submit">Place Order</button>
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Customer ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Contact</th>
+                <th scope="col">Item ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Qty</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">C001</th>
+                <td>Kamal</td>
+                <td>Galle</td>
+                <td>077-3783823</td>
+                <td>I001</td>
+                <td>Sudu Samba</td>
+                <td>5</td>
+                <td>3000</td>
+            </tr>
+            <tr>
+                <th scope="row">C002</th>
+                <td>Nimal</td>
+                <td>Galle</td>
+                <td>077-5683823</td>
+                <td>I002</td>
+                <td>Nadu</td>
+                <td>5</td>
+                <td>5000</td>
+            </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script>
+        $("#home_page").click(function(){
+            $("#home").css('display','block');
+            $("#customer").css('display','none');
+            $("#item").css('display','none');
+            $("#place_order").css('display','none');
+        });
+        $("#customer_page").click(function(){
+            $("#home").css('display','none');
+            $("#customer").css('display','block');
+            $("#item").css('display','none');
+            $("#place_order").css('display','none');
+        });
+        $("#item_page").click(function(){
+            $("#home").css('display','none');
+            $("#customer").css('display','none');
+            $("#item").css('display','block');
+            $("#place_order").css('display','none');
+        });
+        $("#place_order_page").click(function(){
+            $("#home").css('display','none');
+            $("#customer").css('display','none');
+            $("#item").css('display','none');
+            $("#place_order").css('display','block');
+        });
+
+/*Customer Save-----------------------------------------*/
+        $("#btnSaveCustomer").click(function () {
+            let custId = $("#txtCustomerId").val();
+            let custName = $("#txtCustomerName").val();
+            let custAge = $("#txtCustomerAge").val();
+            let custAddress = $("#txtAddress").val();
+            let custSalary = $("#txtSalary").val();
+
+            let tableRow = `<tr><td>${custId}</td><td>${custName}</td><td>${custAge}</td><td>${custAddress}</td><td>${custSalary}</td></tr>`;
+
+            $("#customerTable").append(tableRow);
+
+            $("#txtCustomerId").val("");
+            $("#txtCustomerName").val("");
+            $("#txtCustomerAge").val("");
+            $("#txtAddress").val("");
+            $("#txtSalary").val("");
+
+        });
+
+        /*Item Save-----------------------------------------*/
+        $("#btnSaveItem").click(function () {
+            let itemId = $("#txtItemId").val();
+            let itemName = $("#txtItemName").val();
+            let itemQty = $("#txtQty").val();
+            let itemUnitPrice = $("#txtUnitPrice").val();
+
+            console.log(itemId,itemName,itemQty,itemUnitPrice);
+
+            let tableRow = `<tr><td>${itemId}</td><td>${itemName}</td><td>${itemQty}</td><td>${itemUnitPrice}</td></tr>>`;
+
+            $("#itemTable").append(tableRow);
+
+            $("#txtItemId").val("");
+            $("#txtItemName").val("");
+            $("#txtQty").val("");
+            $("#txtUnitPrice").val("");
+        });
+    </script>
 </body>
 </html>
