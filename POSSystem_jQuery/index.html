@@ -76,37 +76,42 @@
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label class="form-label" for="txtCustomerId">Customer ID</label>
                                 <input class="form-control is-valid" id="txtCustomerId" required type="text">
-                                <div class="valid-feedback">
+                                <p><small class="text-danger pl-1" id="lblcustId"></small></p>
+                                <!--<div class="valid-feedback">
                                     Looks good!
-                                </div>
+                                </div>-->
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label class="form-label" for="txtCustomerName">Customer Name</label>
                                 <input class="form-control is-valid" id="txtCustomerName" required type="text">
-                                <div class="valid-feedback">
+                                <p><small class="text-danger pl-1" id="lblcustName"></small></p>
+                                <!--<div class="valid-feedback">
                                     Looks good!
-                                </div>
+                                </div>-->
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label class="form-label" for="txtCustomerAge">Age</label>
                                 <input class="form-control is-valid" id="txtCustomerAge" required type="text">
-                                <div class="valid-feedback">
+                                <p><small class="text-danger pl-1" id="lblcustAge"></small></p>
+                                <!--<div class="valid-feedback">
                                     Looks good!
-                                </div>
+                                </div>-->
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label class="form-label" for="txtAddress">Address</label>
                                 <input class="form-control is-valid" id="txtAddress" required type="text">
-                                <div class="valid-feedback">
+                                <p><small class="text-danger pl-1" id="lblcustAddress"></small></p>
+                                <!--<div class="valid-feedback">
                                     Looks good!
-                                </div>
+                                </div>-->
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label class="form-label" for="txtSalary">Salary(Rs.)</label>
                                 <input class="form-control is-valid" id="txtSalary" required type="text">
-                                <div class="valid-feedback">
+                                <p><small class="text-danger pl-1" id="lblcustSalary"></small></p>
+                                <!--<div class="valid-feedback">
                                     Looks good!
-                                </div>
+                                </div>-->
                             </div>
                         </form>
                     </div>
@@ -435,6 +440,7 @@
         </table>
     </section>
 
+<!--Place Order Section-->
     <section class="fourthSection" id="place_order" style="display: none">
         <h1 class="sectionName">Place Order</h1>
         <form class="row g-3">
@@ -584,6 +590,167 @@
             $("#txtQty").val("");
             $("#txtUnitPrice").val("");
         });
+
+        const custId = /^(C00-)[0-9]{1,3}$/;
+        const custName = /^[A-z ]{5,20}$/;
+        const custAge = /^[0-9]$/;
+        const custAddress = /^[0-9/A-z. ,]{7,}$/;
+        const custSalary = /^[0-9][.][0-9]{2}$/;
+
+        $('#txtCustomerId,#txtCustomerName,#txtCustomerAge,#txtAddress,#txtSalary').on('keydown', function (eventOb) {
+            if(eventOb.key == "Tab"){
+                eventOb.preventDefault();
+            }
+        });
+
+        $('#txtCustomerId,#txtCustomerName,#txtCustomerAge,#txtAddress,#txtSalary').on('blur', function () {
+            formValid();
+        });
+
+        $("txtCustomerId").on('keyup' , function (eventOb) {
+            setButton();
+            if(eventOb.key == "Enter"){
+               checkIfValid();
+            }
+            if(eventOb.key == "Control"){
+                var typedCustomerId = $("#txtCustomerId").val();
+                var srcCustomer = searchCustomerFormId(typedCustomerId);
+                $("#txtCustomerId").val(srcCustomer.getCustomerId());
+                $("#txtCustomerName").val(srcCustomer.getCustomerName());
+                $("#txtCustomerAge").val(srcCustomer.getCustomerAge());
+                $("#txtAddress").val(srcCustomer.getAddress());
+                $("#txtSalary").val(srcCustomer.getSalary());
+            }
+        });
+
+        $("#txtCustomerName").on('keyup' , function (eventOb) {
+            setButton();
+            if (eventOb.key == "Enter") {
+                checkIfValid();
+            }
+        });
+
+        $("#txtCustomerAge").on('keyup' , function (eventOb) {
+            setButton();
+            if (eventOb.key == "Enter") {
+                checkIfValid();
+            }
+        });
+
+        $("#txtAddress").on('keyup' , function (eventOb) {
+            setButton();
+            if (eventOb.key == "Enter") {
+                checkIfValid();
+            }
+        });
+
+        $("#txtSalary").on('keyup' , function (e) {
+            setButton();
+            if (e.key == "Enter") {
+                checkIfValid();
+            }
+        });
+
+        function formValid() {
+            var cusId = $("#txtCustomerId").val();
+            $("#txtCustomerId").css('border','2px solid green');
+            $("#lblcustId").text("");
+            if(custId.test(cusId)){
+                var cusName = $("#txtCustomerName").val();
+                if(custName.test(cusName)){
+                    $("#txtCustomerName").css('border','2px solid green');
+                    $("#lblcustName").text("");
+                    var cusAge = $("#txtCustomerAge").val();
+                    if(custAge.test(cusAge)){
+                        $("#txtCustomerAge").css('border','2px solid green');
+                        $("#lblcustAge").text("");
+                        var cusAddress = $("#txtAddress").val();
+                        if(custAddress.test(cusAddress)){
+                            $("txtAddress").css('border','2px solid green');
+                            $("#lblcustAddress").text("");
+                            var cusSalary = $("#txtSalary").val();
+                            if(custSalary.test(cusSalary)){
+                                $("#txtSalary").css('border','2px solid green');
+                                $("#lblcustSalary").text("");
+                                return true;
+                            }else {
+                                $("#txtSalary").css('border', '2px solid red');
+                                $("#lblcustSalary").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                                return false;
+                            }
+                        }else {
+                            $("#txtAddress").css('border', '2px solid red');
+                            $("#lblcustAddress").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                            return false;
+                        }
+                    }else {
+                        $("#txtCustomerAge").css('border', '2px solid red');
+                        $("#lblcustAge").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                        return false;
+                    }
+                }else {
+                    $("#txtCustomerName").css('border', '2px solid red');
+                    $("#lblcustName").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                    return false;
+                }
+            }else {
+                $("#txtCustomerId").css('border', '2px solid red');
+                $("#lblcustId").text("Cus Salary is a required field : Pattern 100.00 or 100");
+            }
+
+        }
+
+        function checkIfValid() {
+            var cusId = $("#txtCustomerId").val();
+            if(custId.test(cusId)){
+                $("#txtCustomerId").focus();
+                var cusName = $("#txtCustomerName").val();
+                if(custName.test(cusName)){
+                    $("#txtCustomerAge").focus();
+                    var cusAge = $("#txtCustomerAge").val();
+                    if(custAge.test(cusAge)){
+                        $("#txtAddress").focus();
+                        var cusAddress = $("#txtAddress").val();
+                        if(custAddress.test(cusAddress)){
+                            $("#txtSalary").focus();
+                            var cusSalary = $("#txtSalary").val();
+                            if(custSalary.test(cusSalary)){
+                                let res = confirm("Do you really need to add this Customer..?");
+                                if(res){
+                                    saveCustomer();
+                                    clearAll();
+                                }
+                            }else {
+                                $("#txtSalary").focus();
+                            }
+                        }else {
+                            $("#txtAddress").focus();
+                        }
+                    }else {
+                        $("#txtCustomerAge").focus();
+                    }
+                }else {
+                    $("#txtCustomerName").focus();
+                }
+            }else {
+                $("#txtCustomerId").focus();
+            }
+
+        }
+        
+        function setButton() {
+            let bt = formValid();
+            if(bt){
+                $("#btnSaveCustomer").attr('disable',false);
+            }else {
+                $("#btnSaveCustomer").attr('disable',true);
+            }
+        }
+
+        $('#btnSaveCustomer').click(function () {
+            checkIfValid();
+        });
+
     </script>
 </body>
 </html>
