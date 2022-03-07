@@ -526,6 +526,7 @@
 
     <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="db/db.js"></script>
     <script>
         $("#home_page").click(function(){
             $("#home").css('display','block');
@@ -750,6 +751,29 @@
         $('#btnSaveCustomer').click(function () {
             checkIfValid();
         });
+
+        function saveCustomer() {
+
+            $("#customerTable>tr").off("click");
+
+            let customerID = $("#txtCustomerId").val();
+            let customerName = $("#txtCustomerName").val();
+            let customerAge = $("#txtCustomerAge").val();
+            let customerAddress = $("#txtAddress").val();
+            let customerSalary= $("#txtSalary").val();
+
+            let customerDTO = new CustomerDTO(customerID, customerName, customerAge, customerAddress, customerSalary);
+
+            customerDB.push(customerDTO);
+            loadAllCustomers();
+        }
+        function loadAllCustomers() {
+            $("#customerTable").empty();
+            for (var i of customerDB) {
+                let row = `<tr><td>${i.getID()}</td><td>${i.getName()}</td><td>${i.getAge()}</td><td>${i.getAddress()}</td><td>${i.getSalary()}</td></tr>`;
+                $("#customerTable").append(row);
+            }
+        }
 
     </script>
 </body>
