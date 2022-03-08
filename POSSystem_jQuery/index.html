@@ -291,30 +291,22 @@
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label for="txtItemId" class="form-label">Item ID</label>
                                 <input type="text" class="form-control is-valid" id="txtItemId" required type="text">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <p><small class="text-danger pl-1" id="lblItemId"></small></p>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label for="txtItemName" class="form-label">Item Name</label>
                                 <input type="text" class="form-control is-valid" id="txtItemName" required type="text">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <p><small class="text-danger pl-1" id="lblItemName"></small></p>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label for="txtQty" class="form-label">Qty</label>
                                 <input type="text" class="form-control is-valid" id="txtQty" required type="text">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <p><small class="text-danger pl-1" id="lblItemQty"></small></p>
                             </div>
                             <div class="col-md-6 col-lg-6 col-12">
                                 <label for="txtUnitPrice" class="form-label">Unit Price(Rs.)</label>
                                 <input type="text" class="form-control is-valid" id="txtUnitPrice" required type="text">
-                                <div class="valid-feedback">
-                                    Looks good!
-                                </div>
+                                <p><small class="text-danger pl-1" id="lblItemUnitPrice"></small></p>
                             </div>
                         </form>
                     </div>
@@ -594,6 +586,7 @@
 
         /*Validation...................................*/
 
+        /*Customer validation-----------------------------*/
         const custId = /^(C00-)[0-9]{1,3}$/;
         const custName = /^[A-z ]{5,20}$/;
         const custAge = /^[0-9]$/;
@@ -618,9 +611,9 @@
             if(eventOb.key == "Control"){
                 var typedCustomerId = $("#txtCustomerId").val();
                 var srcCustomer = searchCustomerFormId(typedCustomerId);
-                $("#txtCustomerId").val(srcCustomer.getCustomerId());
-                $("#txtCustomerName").val(srcCustomer.getCustomerName());
-                $("#txtCustomerAge").val(srcCustomer.getCustomerAge());
+                $("#txtCustomerId").val(srcCustomer.getID());
+                $("#txtCustomerName").val(srcCustomer.getName());
+                $("#txtCustomerAge").val(srcCustomer.getAge());
                 $("#txtAddress").val(srcCustomer.getAddress());
                 $("#txtSalary").val(srcCustomer.getSalary());
             }
@@ -770,9 +763,166 @@
         }
         function loadAllCustomers() {
             $("#customerTable").empty();
-            for (var i of customerDB) {
-                let row = `<tr><td>${i.getID()}</td><td>${i.getName()}</td><td>${i.getAge()}</td><td>${i.getAddress()}</td><td>${i.getSalary()}</td></tr>`;
+            for (var c of customerDB) {
+                let row = `<tr><td>${c.getID()}</td><td>${c.getName()}</td><td>${c.getAge()}</td><td>${c.getAddress()}</td><td>${c.getSalary()}</td></tr>`;
                 $("#customerTable").append(row);
+            }
+        }
+
+        const itemId = /^(I00-)[0-9]{1,3}$/;
+        const itemName = /^[A-z ]{5,20}$/;
+        const itemQty = /^[0-9]$/;
+        const unitPrice = /^[0-9][.][0-9]{2}$/;
+
+        $('#txtItemId,#txtItemName,#txtQty,#txtUnitPrice').on('keydown', function (etOb) {
+            if(etOb.key == "Tab"){
+                etOb.preventDefault();
+            }
+        });
+
+        $('#txtItemId,#txtItemName,#txtQty,#txtUnitPrice').on('blur', function () {
+            formValids();
+        });
+
+        $("txtItemId").on('keyup' , function (etOb) {
+            setBtn();
+            if(etOb.key == "Enter"){
+                checkIfValids();
+            }
+            if(etOb.key == "Control"){
+                var typedItemId = $("#txtItemId").val();
+                var srcItem = searchItemFormId(typedItemId);
+                $("#txtItemId").val(srcItem.getID());
+                $("#txtItemName").val(srcItem.getName());
+                $("#txtQty").val(srcItem.getQty());
+                $("#txtUnitPrice").val(srcItem.getUnitPrice());
+            }
+        });
+
+        $("#txtItemName").on('keyup' , function (etOb) {
+            setBtn();
+            if (etOb.key == "Enter") {
+                checkIfValids();
+            }
+        });
+
+        $("#txtQty").on('keyup' , function (etOb) {
+            setBtn();
+            if (etOb.key == "Enter") {
+                checkIfValids();
+            }
+        });
+
+        $("#txtUnitPrice").on('keyup' , function (etOb) {
+            setBtn();
+            if (etOb.key == "Enter") {
+                checkIfValids();
+            }
+        });
+
+        function formValids() {
+            var iId = $("#txtItemId").val();
+            $("#txtItemId").css('border','2px solid green');
+            $("#lblItemId").text("");
+            if(itemId.test(iId)){
+                var iName = $("#txtItemName").val();
+                if(itemName.test(iName)){
+                    $("#txtItemName").css('border','2px solid green');
+                    $("#lblItemName").text("");
+                    var iQty = $("#txtQty").val();
+                    if(itemQty.test(iQty)){
+                        $("#txtQty").css('border','2px solid green');
+                        $("#lblItemQty").text("");
+                        var iUnitPrice = $("#txtUnitPrice").val();
+                        if(unitPrice.test(iUnitPrice)){
+                            $("txtUnitPrice").css('border','2px solid green');
+                            $("#lblItemUnitPrice").text("");
+                                return true;
+                        }else {
+                            $("#txtUnitPrice").css('border', '2px solid red');
+                            $("#lblItemUnitPrice").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                            return false;
+                        }
+                    }else {
+                        $("#txtQty").css('border', '2px solid red');
+                        $("#lblItemQty").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                        return false;
+                    }
+                }else {
+                    $("#txtItemName").css('border', '2px solid red');
+                    $("#lblItemName").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                    return false;
+                }
+            }else {
+                $("#txtItemId").css('border', '2px solid red');
+                $("#lblItemId").text("Cus Salary is a required field : Pattern 100.00 or 100");
+            }
+
+        }
+
+        function checkIfValids() {
+            var iId = $("#txtItemId").val();
+            if(itemId.test(iId)){
+                $("#txtItemName").focus();
+                var iName = $("#txtItemName").val();
+                if(itemName.test(iName)){
+                    $("#txtQty").focus();
+                    var iQty = $("#txtQty").val();
+                    if(itemQty.test(iQty)){
+                        $("#txtUnitPrice").focus();
+                        var iUnitPrice = $("#txtUnitPrice").val();
+                        if(unitPrice.test(iUnitPrice)){
+                                let res = confirm("Do you really need to add this Customer..?");
+                                if(res){
+                                    saveItem();
+                                    clearAll();
+                                }
+                        }else {
+                            $("#txtUnitPrice").focus();
+                        }
+                    }else {
+                        $("#txtQty").focus();
+                    }
+                }else {
+                    $("#txtItemName").focus();
+                }
+            }else {
+                $("#txtItemId").focus();
+            }
+        }
+
+        function setBtn() {
+            let bt = formValids();
+            if(bt){
+                $("#btnSaveItem").attr('disable',false);
+            }else {
+                $("#btnSaveItem").attr('disable',true);
+            }
+        }
+
+        $('#btnSaveItem').click(function () {
+            checkIfValids();
+        });
+
+        function saveItem() {
+
+            $("#itemTable>tr").off("click");
+
+            let itemId = $("#txtItemId").val();
+            let itemName = $("#txtItemName").val();
+            let itemQty = $("#txtQty").val();
+            let unitPrice = $("#txtUnitPrice").val();
+
+            let itemDTO = new itemDTO(itemId,itemName,itemQty,unitPrice);
+
+            itemDB.push(itemDTO);
+            loadAllItems();
+        }
+        function loadAllItems() {
+            $("#itemTable").empty();
+            for (var i of itemDB) {
+                let row = `<tr><td>${i.getID()}</td><td>${i.getName()}</td><td>${i.getQty()}</td><td>${i.getUnitPrice()}</td></tr>`;
+                $("#itemTable").append(row);
             }
         }
 
