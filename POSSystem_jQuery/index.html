@@ -11,7 +11,8 @@
 <nav class="navbar navbar-expand-lg navbar-light shadow-lg" style="background-color: #1C66A6;">
     <div class="container-fluid rounded">
         <a class="navbar-brand" href="#">Nihal Food City</a>
-        <button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+        <button aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
                 data-bs-target="#navbarNavAltMarkup" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +41,7 @@
         <div class="row d-flex flex-row justify-content-around">
             <div class="col-10 col-md-5 col-lg-5 ">
                 <label class="form-label" for="customerDataLists">Customer ID</label>
-                <input class="form-control" id="customerDataLists" list="datalistOptions"
+                <input class="form-control" id="customerDataLists"
                        placeholder="Type to search...">
                 <!--<datalist id="datalistOptions">
                     <option value="C001">
@@ -136,7 +137,7 @@
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtUCustAddress">Address</label>
-                            <input class="form-control"  id="txtUCustAddress" required type="text">
+                            <input class="form-control" id="txtUCustAddress" required type="text">
                             <p><small class="text-danger pl-1" id="lblUCustAddress"></small></p>
                         </div>
                         <div class="col-md-12">
@@ -221,14 +222,7 @@
         <div class="row d-flex flex-row justify-content-around">
             <div class="col-10 col-md-5 col-lg-5 ">
                 <label class="form-label" for="customerDataLists">Customer ID</label>
-                <input class="form-control" id="itemDataLists" list="datalistOptions" placeholder="Type to search...">
-                <datalist id="datalistOption">
-                    <option value="I001">
-                    <option value="I002">
-                    <option value="I003">
-                    <option value="I004">
-                    <option value="I005">
-                </datalist>
+                <input class="form-control" id="itemDataLists" placeholder="Type to search...">
             </div>
             <div class="col-10 col-md-5 col-lg-5 ">
                 <button class="btn btn-primary" data-bs-target="#addNewItem" data-bs-toggle="modal" type="button">
@@ -696,11 +690,54 @@
     }
 
     /*Update Customer validation-----------------------------*/
-    $("#txtUCustId,#txtUCustName,#txtUCustAge,#txtUCustAddress,#txtUCustSalary").on('keydown',function (e) {
-        if(e.key=="Tab"){
+    $("#txtUCustId,#txtUCustName,#txtUCustAge,#txtUCustAddress,#txtUCustSalary").on('keydown', function (e) {
+        if (e.key == "Tab") {
             e.preventDefault();
         }
     });
+
+    $("#txtUCustId").on('keyup', function (e) {
+        let searchId = $("#txtUCustId").val();
+        if (custId.test(searchId)) {
+            $("#txtUCustId").css('border', '2px solid green');
+            $("#lblUCustId").text("");
+            if (e.key == "Enter") {
+                let customer = searchCustomer(searchId);
+                if (customer) {
+                    $("#txtUCustName").val(customer.getName());
+                    $("#txtUCustAge").val(customer.getAge());
+                    $("#txtUCustAddress").val(customer.getAddress());
+                    $("#txtUCustSalary").val(customer.getSalary());
+                    $("#btnUpdateCustomer").prop('disabled', false);
+
+                    $("#txtUCustName").css('border', '2px solid green');
+                    $("#txtUCustAge").css('border', '2px solid green');
+                    $("#txtUCustAddress").css('border', '2px solid green');
+                    $("#txtUCustSalary").css('border', '2px solid green');
+                    $("#txtUCustName").focus();
+                } else {
+                    $("#txtUCustName").val("");
+                    $("#txtUCustAge").val("");
+                    $("#txtUCustAddress").val("");
+                    $("#txtUCustSalary").val("");
+                    $("#btnUpdateCustomer").prop('disabled', true);
+                    alert("Customer Not found");
+                }
+            }
+        } else {
+            $("#txtUCustId").css('border', '2px solid red');
+            $("#lblUCustId").text("Customer ID is a required field.Pattern : C00-0001");
+            $("#btnUpdateCustomer").prop('disabled', true);
+        }
+    });
+
+    function searchCustomer(customerId) {
+        for (var i = 0; i < customerDB.length; i++) {
+            if(customerDB[i].getID()==customerId){
+                return customerDB[i];
+            }
+        }
+    }
 
 
     /*Item Validation----------------------------------------------*/
