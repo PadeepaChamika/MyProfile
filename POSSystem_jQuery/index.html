@@ -200,7 +200,7 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">Customer Id</th>
@@ -465,6 +465,7 @@
 <script src="db/db.js"></script>
 
 <script src="model/CustomerDTO.js"></script>
+<script src="model/itemDTO.js"></script>
 <script>
     $("#home_page").click(function () {
         $("#home").css('display', 'block');
@@ -491,8 +492,6 @@
         $("#place_order").css('display', 'block');
     });
 
-    /*Validation...................................*/
-
     /*Customer validation-----------------------------*/
     /*Save Customer validation-----------------------------*/
     $("#btnSaveCustomer").prop('disabled', true);
@@ -517,15 +516,6 @@
         if (eventOb.key == "Enter") {
             checkIfValid();
         }
-        /*if(eventOb.key == "Control"){
-            var typedCustomerId = $("#txtCustomerId").val();
-            var srcCustomer = searchCustomerFormId(typedCustomerId);
-            $("#txtCustomerId").val(srcCustomer.getID());
-            $("#txtCustomerName").val(srcCustomer.getName());
-            $("#txtCustomerAge").val(srcCustomer.getAge());
-            $("#txtAddress").val(srcCustomer.getAddress());
-            $("#txtSalary").val(srcCustomer.getSalary());
-        }*/
     });
 
     $("#txtCustomerName").on('keyup', function (eventOb) {
@@ -721,6 +711,10 @@
                     $("#txtUCustAddress").val("");
                     $("#txtUCustSalary").val("");
                     $("#btnUpdateCustomer").prop('disabled', true);
+                    $("#txtUCustName").css('border', '1px solid #ced4da');
+                    $("#txtUCustAge").css('border', '1px solid #ced4da');
+                    $("#txtUCustAddress").css('border', '1px solid #ced4da');
+                    $("#txtUCustSalary").css('border', '1px solid #ced4da');
                     alert("Customer Not found");
                 }
             }
@@ -741,10 +735,10 @@
 
 
     /*Item Validation----------------------------------------------*/
-    const itemId = /^(I00-)[0-9]{1,3}$/;
+    const itemId = /^(I00-)[0-9]{3}$/;
     const itemName = /^[A-z ]{5,20}$/;
     const itemQty = /^[0-9]$/;
-    const unitPrice = /^[0-9][.][0-9]{2}$/;
+    const unitPrice = /[0-9]{1,}[.][0-9]{2}$/;
 
     $('#txtItemId,#txtItemName,#txtQty,#txtUnitPrice').on('keydown', function (etOb) {
         if (etOb.key == "Tab") {
@@ -756,19 +750,19 @@
         formValids();
     });
 
-    $("txtItemId").on('keyup', function (etOb) {
+    $("#txtItemId").on('keyup', function (etOb) {
         setBtn();
         if (etOb.key == "Enter") {
             checkIfValids();
         }
-        if (etOb.key == "Control") {
+        /*if (etOb.key == "Control") {
             var typedItemId = $("#txtItemId").val();
             var srcItem = searchItemFormId(typedItemId);
             $("#txtItemId").val(srcItem.getID());
             $("#txtItemName").val(srcItem.getName());
             $("#txtQty").val(srcItem.getQty());
             $("#txtUnitPrice").val(srcItem.getUnitPrice());
-        }
+        }*/
     });
 
     $("#txtItemName").on('keyup', function (etOb) {
@@ -844,7 +838,7 @@
                     $("#txtUnitPrice").focus();
                     var iUnitPrice = $("#txtUnitPrice").val();
                     if (unitPrice.test(iUnitPrice)) {
-                        let res = confirm("Do you really need to add this Customer..?");
+                        let res = confirm("Do you really need to add this Item..?");
                         if (res) {
                             saveItem();
                             clearAll();
@@ -877,9 +871,6 @@
     });
 
     function saveItem() {
-
-        $("#itemTable>tr").off("click");
-
         let itemId = $("#txtItemId").val();
         let itemName = $("#txtItemName").val();
         let itemQty = $("#txtQty").val();
@@ -889,15 +880,49 @@
 
         itemDB.push(itemDTO);
         loadAllItems();
+        clearAllSaveItemFields();
     }
 
     function loadAllItems() {
         $("#itemTable").empty();
         for (var i of itemDB) {
-            let row = `<tr><td>${i.getID()}</td><td>${i.getName()}</td><td>${i.getQty()}</td><td>${i.getUnitPrice()}</td></tr>`;
+            let row = `<tr><td>${i.getId()}</td><td>${i.getName()}</td><td>${i.getQty()}</td><td>${i.getUnitPrice()}</td></tr>`;
             $("#itemTable").append(row);
         }
     }
+
+    function clearAllSaveItemFields(){
+        $("#txtItemId").val("");
+        $("#txtItemName").val("");
+        $("#txtQty").val("");
+        $("#txtUnitPrice").val("");
+
+        $("#btnSaveItem").prop('disabled', true);
+    }
+
+
+    $("#txtCName").keyup(function (event) {
+        var custName = $("#txtCName").val();
+        if (regCustName.test(custName)) {
+            $("#txtCName").css('border', '2px solid green');
+            $("#cNameError").text("");
+            if (event.key == "Enter") {
+                $("#txtCaddress").focus();
+            }
+            var custId = $("#txtSearchCustomerId").val();
+            var custSalary = $("#txtCsalary").val();
+            var custAddress = $("#txtCaddress").val();
+
+            if (regCusId.test(custId) && regCustName.test(custName) && regCustAddress.test(custAddress) && regCustSalary.test(custSalary)) {
+                $("#btnUpdateCust").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateCust").prop('disabled', true);
+            $("#txtCName").css('border', '2px solid red');
+            $("#cNameError").text("Cust name is a required field.");
+        }
+    });
 
 </script>
 </body>
