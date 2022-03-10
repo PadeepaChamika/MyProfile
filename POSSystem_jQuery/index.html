@@ -250,22 +250,22 @@
                     <form>
                         <div class="col-md-6 col-lg-6 col-12">
                             <label class="form-label" for="txtItemId">Item ID</label>
-                            <input class="form-control is-valid" id="txtItemId" required type="text" type="text">
+                            <input class="form-control" id="txtItemId" required type="text" type="text">
                             <p><small class="text-danger pl-1" id="lblItemId"></small></p>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
                             <label class="form-label" for="txtItemName">Item Name</label>
-                            <input class="form-control is-valid" id="txtItemName" required type="text" type="text">
+                            <input class="form-control" id="txtItemName" required type="text" type="text">
                             <p><small class="text-danger pl-1" id="lblItemName"></small></p>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
                             <label class="form-label" for="txtQty">Qty</label>
-                            <input class="form-control is-valid" id="txtQty" required type="text" type="text">
+                            <input class="form-control" id="txtQty" required type="text" type="text">
                             <p><small class="text-danger pl-1" id="lblItemQty"></small></p>
                         </div>
                         <div class="col-md-6 col-lg-6 col-12">
                             <label class="form-label" for="txtUnitPrice">Unit Price(Rs.)</label>
-                            <input class="form-control is-valid" id="txtUnitPrice" required type="text" type="text">
+                            <input class="form-control" id="txtUnitPrice" required type="text" type="text">
                             <p><small class="text-danger pl-1" id="lblItemUnitPrice"></small></p>
                         </div>
                     </form>
@@ -292,22 +292,22 @@
                     <form class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label" for="txtUItemId">Item ID</label>
-                            <input class="form-control is-valid" id="txtUItemId" required type="text" value="">
+                            <input class="form-control" id="txtUItemId" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblUItemId"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtUItemName">Item Name</label>
-                            <input class="form-control is-valid" id="txtUItemName" required type="text" value="">
+                            <input class="form-control" id="txtUItemName" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblUItemName"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtUItemQty">Qty</label>
-                            <input class="form-control is-valid" id="txtUItemQty" required type="text" value="">
+                            <input class="form-control" id="txtUItemQty" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblUItemQty"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtUItemUnitPrice">Unit Price(Rs.)</label>
-                            <input class="form-control is-valid" id="txtUItemUnitPrice" required type="text" value="">
+                            <input class="form-control" id="txtUItemUnitPrice" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblUItemUnitPrice"></small></p>
                         </div>
                     </form>
@@ -334,22 +334,22 @@
                     <form class="row g-3">
                         <div class="col-md-6">
                             <label class="form-label" for="txtDItemId">Item ID</label>
-                            <input class="form-control is-valid" id="txtDItemId" required type="text" value="">
+                            <input class="form-control" id="txtDItemId" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblDItemId"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtDItemName">Item Name</label>
-                            <input class="form-control is-valid" id="txtDItemName" required type="text" value="">
+                            <input class="form-control" id="txtDItemName" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblDItemName"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtDItemQty">Qty</label>
-                            <input class="form-control is-valid" id="txtDItemQty" required type="text" value="">
+                            <input class="form-control" id="txtDItemQty" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblDItemQty"></small></p>
                         </div>
                         <div class="col-md-6">
                             <label class="form-label" for="txtDItemUnitPrice">Unit Price(Rs.)</label>
-                            <input class="form-control is-valid" id="txtDItemUnitPrice" required type="text" value="">
+                            <input class="form-control" id="txtDItemUnitPrice" required type="text" value="">
                             <p><small class="text-danger pl-1" id="lblDItemUnitPrice"></small></p>
                         </div>
                     </form>
@@ -362,7 +362,7 @@
         </div>
     </div>
 
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th scope="col">Item ID</th>
@@ -465,7 +465,7 @@
 <script src="db/db.js"></script>
 
 <script src="model/CustomerDTO.js"></script>
-<script src="model/itemDTO.js"></script>
+<script src="model/ItemDTO.js"></script>
 <script>
     $("#home_page").click(function () {
         $("#home").css('display', 'block');
@@ -892,24 +892,14 @@
             }
     });
 
-    /*Delete Customer----------------------------*/
-    $("#cartTable>tr").on('dblclick', function () {
-        var itemCode = $(this).children(":eq(0)").text();
-        for (var i = 0; i < cartTMDB.length; i++) {
-            if (cartTMDB[i].getICode() == itemCode) {
-                cartTMDB.splice(i, 1);
-            }
-        }
-        loadCartItemsToTable();
-        calculateTotalAndNoOfItems();
-        clearSelectItemFields();
-    });
 
     /*Item Validation----------------------------------------------*/
     const itemId = /^(I00-)[0-9]{3}$/;
     const itemName = /^[A-z ]{5,20}$/;
-    const itemQty = /^[0-9]$/;
+    const itemQty = /^[0-9]{1,}$/;
     const unitPrice = /[0-9]{1,}[.][0-9]{2}$/;
+
+    /*Save Item------------------------------------------*/
 
     $('#txtItemId,#txtItemName,#txtQty,#txtUnitPrice').on('keydown', function (etOb) {
         if (etOb.key == "Tab") {
@@ -926,14 +916,6 @@
         if (etOb.key == "Enter") {
             checkIfValids();
         }
-        /*if (etOb.key == "Control") {
-            var typedItemId = $("#txtItemId").val();
-            var srcItem = searchItemFormId(typedItemId);
-            $("#txtItemId").val(srcItem.getID());
-            $("#txtItemName").val(srcItem.getName());
-            $("#txtQty").val(srcItem.getQty());
-            $("#txtUnitPrice").val(srcItem.getUnitPrice());
-        }*/
     });
 
     $("#txtItemName").on('keyup', function (etOb) {
@@ -972,7 +954,7 @@
                     $("#lblItemQty").text("");
                     var iUnitPrice = $("#txtUnitPrice").val();
                     if (unitPrice.test(iUnitPrice)) {
-                        $("txtUnitPrice").css('border', '2px solid green');
+                        $("#txtUnitPrice").css('border', '2px solid green');
                         $("#lblItemUnitPrice").text("");
                         return true;
                     } else {
@@ -1047,7 +1029,7 @@
         let itemQty = $("#txtQty").val();
         let unitPrice = $("#txtUnitPrice").val();
 
-        let itemDTO = new itemDTO(itemId, itemName, itemQty, unitPrice);
+        let itemDTO = new ItemDTO(itemId, itemName, itemQty, unitPrice);
 
         itemDB.push(itemDTO);
         loadAllItems();
@@ -1071,29 +1053,169 @@
         $("#btnSaveItem").prop('disabled', true);
     }
 
+    /*Update Item---------------------------------*/
+    $("#txtUItemId,#txtUItemName,#txtUItemQty,#txtUItemUnitPrice").on('keydown' , function (e) {
+        if(e.key == "Tab"){
+            e.preventDefault();
+        }
+    });
 
-    /*$("#txtCName").keyup(function (event) {
-        var custName = $("#txtCName").val();
-        if (regCustName.test(custName)) {
-            $("#txtCName").css('border', '2px solid green');
-            $("#cNameError").text("");
-            if (event.key == "Enter") {
-                $("#txtCaddress").focus();
+    $("#txtUItemId").on('keyup', function (e) {
+        let searchId = $("#txtUItemId").val();
+        if(itemId.test(searchId)){
+            $("#txtUItemId").css('border', '2px solid green');
+            $("#lblUItemId").text("");
+            if(e.key == "Enter"){
+                let item = searchItem(searchId);
+                if(item){
+                    $("#txtUItemName").val(item.getName());
+                    $("#txtUItemQty").val(item.getQty());
+                    $("#txtUItemUnitPrice").val(item.getUnitPrice());
+                    $("#btnUpdateItem").prop('disabled', false);
+
+                    $("#txtUItemName").css('border', '2px solid green');
+                    $("#txtUItemQty").css('border', '2px solid green');
+                    $("#txtUItemUnitPrice").css('border', '2px solid green');
+                    $("#txtUItemName").focus();
+                }else {
+                    $("#txtUItemName").val("");
+                    $("#txtUItemQty").val("");
+                    $("#txtUItemUnitPrice").val("");
+                    $("#btnUpdateItem").prop('disabled', true);
+                    $("#txtUItemName").css('border', '1px solid #ced4da');
+                    $("#txtUItemQty").css('border', '1px solid #ced4da');
+                    $("#txtUItemUnitPrice").css('border', '1px solid #ced4da');
+                    alert("Item Not found");
+                }
             }
-            var custId = $("#txtSearchCustomerId").val();
-            var custSalary = $("#txtCsalary").val();
-            var custAddress = $("#txtCaddress").val();
+        }else {
+            $("#txtUItemId").css('border', '2px solid red');
+            $("#lblUItemId").text("Item ID is a required field.Pattern : I00-0001");
+            $("#btnUpdateItem").prop('disabled', true);
+        }
+    });
 
-            if (regCusId.test(custId) && regCustName.test(custName) && regCustAddress.test(custAddress) && regCustSalary.test(custSalary)) {
-                $("#btnUpdateCust").prop('disabled', false);
+    function searchItem(itemId) {
+        for (var i = 0; i < itemDB.length; i++) {
+            if(itemDB[i].getId()==itemId){
+                return itemDB[i];
+            }
+        }
+    }
+
+    $("#txtUItemName").keyup(function (event) {
+        var uItName = $("#txtUItemName").val();
+        if (itemName.test(uItName)) {
+            $("#txtUItemName").css('border', '2px solid green');
+            $("#lblUItemName").text("");
+            if (event.key == "Enter") {
+                $("#txtUItemQty").focus();
+            }
+            var uItId = $("#txtUItemId").val();
+            var uItQty = $("#txtUItemQty").val();
+            var uItUnitPrice = $("#txtUItemUnitPrice").val();
+
+            if (itemId.test(uItId) && itemName.test(uItName) && itemQty.test(uItQty) && unitPrice.test(uItUnitPrice)) {
+                $("#btnUpdateItem").prop('disabled', false);
             }
 
         } else {
-            $("#btnUpdateCust").prop('disabled', true);
-            $("#txtCName").css('border', '2px solid red');
-            $("#cNameError").text("Cust name is a required field.");
+            $("#btnUpdateItem").prop('disabled', true);
+            $("#txtUItemName").css('border', '2px solid red');
+            $("#lblUItemName").text("Item name is a required field.");
         }
-    });*/
+    });
+
+    $("#txtUItemQty").keyup(function (event) {
+        var uItQty = $("#txtUItemQty").val();
+        if (itemQty.test(uItQty)) {
+            $("#txtUItemQty").css('border', '2px solid green');
+            $("#lblUItemQty").text("");
+            if (event.key == "Enter") {
+                $("#txtUItemUnitPrice").focus();
+            }
+            var uItId = $("#txtUItemId").val();
+            var uItName = $("#txtUItemName").val();
+            var uItUnitPrice = $("#txtUItemUnitPrice").val();
+
+            if (itemId.test(uItId) && itemName.test(uItName) && itemQty.test(uItQty) && unitPrice.test(uItUnitPrice)) {
+                $("#btnUpdateItem").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateItem").prop('disabled', true);
+            $("#txtUItemQty").css('border', '2px solid red');
+            $("#lblUItemQty").text("Item Qty is a required field.");
+        }
+    });
+
+    $("#txtUItemUnitPrice").keyup(function (event) {
+        var uItUnitPrice = $("#txtUItemUnitPrice").val();
+        if (unitPrice.test(uItUnitPrice)) {
+            $("#txtUItemUnitPrice").css('border', '2px solid green');
+            $("#lblUItemUnitPrice").text("");
+            if (event.key == "Enter") {
+                let res = confirm("Do you want to update this Item?");
+                if (res) {
+                    updateItem();
+                    loadAllItems();
+                }
+            }
+            var uItId = $("#txtUItemId").val();
+            var uItName = $("#txtUItemName").val();
+            var uItQty = $("#txtUItemQty").val();
+
+            if (itemId.test(uItId) && itemName.test(uItName) && itemQty.test(uItQty) && unitPrice.test(uItUnitPrice)) {
+                $("#btnUpdateItem").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateItem").prop('disabled', true);
+            $("#txtUItemUnitPrice").css('border', '2px solid red');
+            $("#lblUItemUnitPrice").text("Item Unit Price is a required field.");
+        }
+    });
+
+    function updateItem() {
+        let uItId = $("#txtUItemId").val();
+        let uItName = $("#txtUItemName").val();
+        let uItQty = $("#txtUItemQty").val();
+        let uItUnitPrice = $("#txtUItemUnitPrice").val();
+
+        for (i = 0; i<itemDB.length ; i++){
+            if(itemDB[i].getId() == uItId){
+                itemDB[i].setId(uItId);
+                itemDB[i].setName(uItName);
+                itemDB[i].setQty(uItQty);
+                itemDB[i].setUnitPrice(uItUnitPrice);
+
+                clearUpdateItemFields();
+                $("#btnUpdateItem").prop('disabled', true);
+            }
+        }
+    }
+
+    function clearUpdateItemFields() {
+        $("#txtUItemId").val("");
+        $("#txtUItemName").val("");
+        $("#txtUItemQty").val("");
+        $("#txtUItemUnitPrice").val("");
+
+        $("#txtUItemId").css('border', '1px solid #ced4da');
+        $("#txtUItemName").css('border', '1px solid #ced4da');
+        $("#txtUItemQty").css('border', '1px solid #ced4da');
+        $("#txtUItemUnitPrice").css('border', '1px solid #ced4da');
+
+        $("#btnUpdateItem").prop('disabled', true);
+    }
+
+    $("#btnUpdateItem").click(function () {
+        let res = confirm("Do you want to update this Item?");
+        if (res) {
+            updateItem();
+            loadAllItems();
+        }
+    });
 
 </script>
 </body>
