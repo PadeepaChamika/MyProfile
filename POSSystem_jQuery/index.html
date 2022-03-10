@@ -659,6 +659,19 @@
         customerDB.push(customerDTO);
         loadAllCustomers();
         clearAllSaveCustomerFields();
+
+        $("#customerTable>tr").on('dblclick', function () {
+            var custId = $(this).children(":eq(0)").text();
+            for (var i = 0; i < customerDB.length; i++) {
+                if (customerDB[i].getID() == custId) {
+                    let res = confirm("Do you want to delete this customer?");
+                    if(res){
+                        customerDB.splice(i, 1);
+                    }
+                }
+            }
+            loadAllCustomers();
+        });
     }
 
     function loadAllCustomers() {
@@ -877,7 +890,20 @@
                 updateCustomer();
                 loadAllCustomers();
             }
-    })
+    });
+
+    /*Delete Customer----------------------------*/
+    $("#cartTable>tr").on('dblclick', function () {
+        var itemCode = $(this).children(":eq(0)").text();
+        for (var i = 0; i < cartTMDB.length; i++) {
+            if (cartTMDB[i].getICode() == itemCode) {
+                cartTMDB.splice(i, 1);
+            }
+        }
+        loadCartItemsToTable();
+        calculateTotalAndNoOfItems();
+        clearSelectItemFields();
+    });
 
     /*Item Validation----------------------------------------------*/
     const itemId = /^(I00-)[0-9]{3}$/;
