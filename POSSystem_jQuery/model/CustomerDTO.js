@@ -6,19 +6,19 @@ function CustomerDTO(id,name,age,address,salary){
     var __salary=salary;
 
     this.getID = function () {
-        return id;
+        return __id;
     }
     this.getName = function () {
-        return name;
+        return __name;
     }
     this.getAge = function () {
-        return age;
+        return __age;
     }
     this.getAddress = function () {
-        return address;
+        return __address;
     }
     this.getSalary = function () {
-        return salary;
+        return __salary;
     }
 
     this.setID = function (id) {

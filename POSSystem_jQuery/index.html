@@ -613,7 +613,7 @@
                             let res = confirm("Do you really need to add this Customer..?");
                             if (res) {
                                 saveCustomer();
-                                clearAll();
+                                clearAllSaveCustomerFields();
                             }
                         } else {
                             $("#txtSalary").focus();
@@ -663,8 +663,8 @@
 
     function loadAllCustomers() {
         $("#customerTable").empty();
-        for (var c of customerDB) {
-            let row = `<tr><td>${c.getID()}</td><td>${c.getName()}</td><td>${c.getAge()}</td><td>${c.getAddress()}</td><td>${c.getSalary()}</td></tr>`;
+        for (var i=0; i<customerDB.length; i++) {
+            let row = `<tr><td>${customerDB[i].getID()}</td><td>${customerDB[i].getName()}</td><td>${customerDB[i].getAge()}</td><td>${customerDB[i].getAddress()}</td><td>${customerDB[i].getSalary()}</td></tr>`;
             $("#customerTable").append(row);
         }
     }
@@ -810,9 +810,13 @@
         if (custSalary.test(uCustSalary)) {
             $("#txtUCustSalary").css('border', '2px solid green');
             $("#lblUCustSalary").text("");
-            /*if (event.key == "Enter") {
-                $("#txtUCustSalary").focus();
-            }*/
+            if (event.key == "Enter") {
+                let res = confirm("Do you want to update this customer?");
+                if (res) {
+                    updateCustomer();
+                    loadAllCustomers();
+                }
+            }
             var uCustId = $("#txtUCustId").val();
             var uCustName = $("#txtUCustName").val();
             var uCustAge = $("#txtUCustAge").val();
@@ -829,6 +833,51 @@
         }
     });
 
+    function updateCustomer() {
+        let uCustId = $("#txtUCustId").val();
+        let uCustName = $("#txtUCustName").val();
+        let uCustAge = $("#txtUCustAge").val();
+        let uCustAddress = $("#txtUCustAddress").val();
+        let uCustSalary = $("#txtUCustSalary").val();
+
+        for (var i = 0; i < customerDB.length; i++) {
+            if (customerDB[i].getID() == uCustId) {
+                customerDB[i].setID(uCustId);
+                customerDB[i].setName(uCustName);
+                customerDB[i].setAge(uCustAge);
+                customerDB[i].setAddress(uCustAddress);
+                customerDB[i].setSalary(uCustSalary);
+
+                clearUpdateCustomerFields();
+                $("#btnUpdateCustomer").prop('disabled', true);
+            }
+        }
+    }
+
+    function clearUpdateCustomerFields() {
+        $("#txtUCustId").val("");
+        $("#txtUCustName").val("");
+        $("#txtUCustAge").val("");
+        $("#txtUCustAddress").val("");
+        $("#txtUCustSalary").val("");
+
+        $("#txtUCustId").css('border', '1px solid #ced4da');
+        $("#txtUCustName").css('border', '1px solid #ced4da');
+        $("#txtUCustAge").css('border', '1px solid #ced4da');
+        $("#txtUCustAddress").css('border', '1px solid #ced4da');
+        $("#txtUCustSalary").css('border', '1px solid #ced4da');
+
+
+        $("#btnUpdateCustomer").prop('disabled', true);
+    }
+
+    $("#btnUpdateCustomer").click(function () {
+            let res = confirm("Do you want to update this customer?");
+            if (res) {
+                updateCustomer();
+                loadAllCustomers();
+            }
+    })
 
     /*Item Validation----------------------------------------------*/
     const itemId = /^(I00-)[0-9]{3}$/;
