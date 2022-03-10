@@ -733,6 +733,102 @@
         }
     }
 
+    $("#txtUCustName").keyup(function (event) {
+        var uCustName = $("#txtUCustName").val();
+        if (custName.test(uCustName)) {
+            $("#txtUCustName").css('border', '2px solid green');
+            $("#lblUCustName").text("");
+            if (event.key == "Enter") {
+                $("#txtUCustAge").focus();
+            }
+            var uCustId = $("#txtUCustId").val();
+            var uCustAge = $("#txtUCustAge").val();
+            var uCustAddress = $("#txtUCustAddress").val();
+            var uCustSalary = $("#txtUCustSalary").val();
+
+            if (custId.test(uCustId) && custName.test(uCustName) && custAge.test(uCustAge) && custAddress.test(uCustAddress) && custSalary.test(uCustSalary)) {
+                $("#btnUpdateCustomer").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateCustomer").prop('disabled', true);
+            $("#txtUCustName").css('border', '2px solid red');
+            $("#lblUCustName").text("Customer name is a required field.");
+        }
+    });
+
+    $("#txtUCustAge").keyup(function (event) {
+        var uCustAge = $("#txtUCustAge").val();
+        if (custAge.test(uCustAge)) {
+            $("#txtUCustAge").css('border', '2px solid green');
+            $("#lblUCustAge").text("");
+            if (event.key == "Enter") {
+                $("#txtUCustAddress").focus();
+            }
+            var uCustId = $("#txtUCustId").val();
+            var uCustName = $("#txtUCustName").val();
+            var uCustAddress = $("#txtUCustAddress").val();
+            var uCustSalary = $("#txtUCustSalary").val();
+
+            if (custId.test(uCustId) && custName.test(uCustName) && custAge.test(uCustAge) && custAddress.test(uCustAddress) && custSalary.test(uCustSalary)) {
+                $("#btnUpdateCustomer").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateCustomer").prop('disabled', true);
+            $("#txtUCustAge").css('border', '2px solid red');
+            $("#lblUCustAge").text("Customer age is a required field.");
+        }
+    });
+
+    $("#txtUCustAddress").keyup(function (event) {
+        var uCustAddress = $("#txtUCustAddress").val();
+        if (custAddress.test(uCustAddress)) {
+            $("#txtUCustAddress").css('border', '2px solid green');
+            $("#lblUCustAddress").text("");
+            if (event.key == "Enter") {
+                $("#txtUCustSalary").focus();
+            }
+            var uCustId = $("#txtUCustId").val();
+            var uCustName = $("#txtUCustName").val();
+            var uCustAge = $("#txtUCustAge").val();
+            var uCustSalary = $("#txtUCustSalary").val();
+
+            if (custId.test(uCustId) && custName.test(uCustName) && custAge.test(uCustAge) && custAddress.test(uCustAddress) && custSalary.test(uCustSalary)) {
+                $("#btnUpdateCustomer").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateCustomer").prop('disabled', true);
+            $("#txtUCustAddress").css('border', '2px solid red');
+            $("#lblUCustAddress").text("Customer address is a required field.");
+        }
+    });
+
+    $("#txtUCustSalary").keyup(function (event) {
+        var uCustSalary = $("#txtUCustSalary").val();
+        if (custSalary.test(uCustSalary)) {
+            $("#txtUCustSalary").css('border', '2px solid green');
+            $("#lblUCustSalary").text("");
+            /*if (event.key == "Enter") {
+                $("#txtUCustSalary").focus();
+            }*/
+            var uCustId = $("#txtUCustId").val();
+            var uCustName = $("#txtUCustName").val();
+            var uCustAge = $("#txtUCustAge").val();
+            var uCustAddress = $("#txtUCustAddress").val();
+
+            if (custId.test(uCustId) && custName.test(uCustName) && custAge.test(uCustAge) && custAddress.test(uCustAddress) && custSalary.test(uCustSalary)) {
+                $("#btnUpdateCustomer").prop('disabled', false);
+            }
+
+        } else {
+            $("#btnUpdateCustomer").prop('disabled', true);
+            $("#txtUCustSalary").css('border', '2px solid red');
+            $("#lblUCustSalary").text("Customer salary is a required field.");
+        }
+    });
+
 
     /*Item Validation----------------------------------------------*/
     const itemId = /^(I00-)[0-9]{3}$/;
@@ -901,7 +997,7 @@
     }
 
 
-    $("#txtCName").keyup(function (event) {
+    /*$("#txtCName").keyup(function (event) {
         var custName = $("#txtCName").val();
         if (regCustName.test(custName)) {
             $("#txtCName").css('border', '2px solid green');
@@ -922,7 +1018,7 @@
             $("#txtCName").css('border', '2px solid red');
             $("#cNameError").text("Cust name is a required field.");
         }
-    });
+    });*/
 
 </script>
 </body>
