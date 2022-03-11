@@ -43,13 +43,6 @@
                 <label class="form-label" for="customerDataLists">Customer ID</label>
                 <input class="form-control" id="customerDataLists"
                        placeholder="Type to search...">
-                <!--<datalist id="datalistOptions">
-                    <option value="C001">
-                    <option value="C002">
-                    <option value="C003">
-                    <option value="C004">
-                    <option value="C005">
-                </datalist>-->
             </div>
             <div class="col-10 col-md-5 col-lg-5 ">
                 <button class="btn btn-primary" data-bs-target="#addNewCustomer" data-bs-toggle="modal" type="button">
@@ -379,7 +372,8 @@
 <!--Place Order Section-->
 <section class="fourthSection" id="place_order" style="display: none">
     <h1 class="sectionName">Place Order</h1>
-    <form class="row g-3">
+
+    <!--<form class="row g-3">
         <div class="col-md-2">
             <label class="form-label" for="validationDefault04">Customer ID</label>
             <select class="form-select" id="validationDefault01" required>
@@ -436,7 +430,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
+       &lt;!&ndash; <tr>
             <th scope="row">C001</th>
             <td>Kamal</td>
             <td>Galle</td>
@@ -445,8 +439,8 @@
             <td>Sudu Samba</td>
             <td>5</td>
             <td>3000</td>
-        </tr>
-        <tr>
+        </tr>&ndash;&gt;
+        &lt;!&ndash;<tr>
             <th scope="row">C002</th>
             <td>Nimal</td>
             <td>Galle</td>
@@ -455,9 +449,9 @@
             <td>Nadu</td>
             <td>5</td>
             <td>5000</td>
-        </tr>
+        </tr>&ndash;&gt;
         </tbody>
-    </table>
+    </table>-->
 </section>
 
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
@@ -994,7 +988,7 @@
                         let res = confirm("Do you really need to add this Item..?");
                         if (res) {
                             saveItem();
-                            clearAll();
+                            clearAllSaveItemFields();
                         }
                     } else {
                         $("#txtUnitPrice").focus();
@@ -1034,6 +1028,19 @@
         itemDB.push(itemDTO);
         loadAllItems();
         clearAllSaveItemFields();
+
+        $("#itemTable>tr").on('dblclick', function () {
+            var itId = $(this).children(":eq(0)").text();
+            for (var i = 0; i < itemDB.length; i++) {
+                if (itemDB[i].getId() == itId) {
+                    let res = confirm("Do you want to delete this Item?");
+                    if(res){
+                        itemDB.splice(i, 1);
+                    }
+                }
+            }
+            loadAllItems();
+        });
     }
 
     function loadAllItems() {
