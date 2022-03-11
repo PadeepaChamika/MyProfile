@@ -375,12 +375,12 @@
 
     <div class="row mt-1 justify-content-between oDate">
         <div class="col-12 col-md-3 col-lg-2">
-            <label class="fw-bold" for="txtOrderId">Order ID</label>
-            <input class="form-control border-dark" id="txtOrderId" type="text" disabled>
+            <label class="fw-bold" for="lblOrderId">Order ID</label>
+            <input class="form-control border-dark" id="lblOrderId" type="text" disabled>
         </div>
         <div class="col-12 col-md-3 col-lg-2">
-            <label class="fw-bold" for="txtOrderDate">Order Date</label>
-            <input class="form-control border-dark" id="txtOrderDate" type="text" disabled>
+            <label class="fw-bold" for="lblOrderDate">Order Date</label>
+            <input class="form-control border-dark" id="lblOrderDate" type="text" disabled>
         </div>
     </div>
 
@@ -520,7 +520,9 @@
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'block');
 
-        function orderId() {
+        orderId();
+
+        /*function orderId() {
             if (orderDB.length == 0) {
                 $("#txtOrderId").val("O-0001");
             } else if (orderDB.length > 0) {
@@ -537,7 +539,7 @@
                     $("#txtOrderId").val("O-" + tempId);
                 }
             }
-        }
+        }*/
     });
 
     /*Customer validation-----------------------------*/
@@ -1277,6 +1279,26 @@
             loadAllItems();
         }
     });
+
+    /*Place Order -------------------------------------------*/
+    function orderId() {
+        if (orderDB.length == 0) {
+            $("#lblOrderId").val("O-0001");
+        } else if (orderDB.length > 0) {
+            var orderId = orderDB[orderDB.length - 1].getOrderId().split("-")[1];
+            var tempId = parseInt(orderId);
+            tempId = tempId + 1;
+            if (tempId <= 9) {
+                $("#txtOrderId").val("O-000" + tempId);
+            } else if (tempId <= 99) {
+                $("#txtOrderId").val("O-00" + tempId);
+            } else if (tempId <= 999) {
+                $("#txtOrderId").val("O-0" + tempId);
+            } else if (tempId <= 9999) {
+                $("#txtOrderId").val("O-" + tempId);
+            }
+        }
+    }
 
 </script>
 </body>
