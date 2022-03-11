@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 .firstSection{
     position: relative;
     height: 91vh;
@@ -62,4 +65,7 @@
 }
 .sectionName{
     color: white;
+}
+.oDate{
+    width: 100vw;
 }

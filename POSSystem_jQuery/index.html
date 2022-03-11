@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>CSS_Frameworks-Bootstrap</title>
+    <title>Bootstrap_POS</title>
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/styles/style.css" rel="stylesheet">
@@ -373,7 +373,7 @@
 <section class="fourthSection" id="place_order" style="display: none">
     <h1 class="sectionName">Place Order</h1>
 
-    <div class="row mt-1">
+    <div class="row mt-1 justify-content-between oDate">
         <div class="col-12 col-md-3 col-lg-2">
             <label class="fw-bold" for="txtOrderId">Order ID</label>
             <input class="form-control border-dark" id="txtOrderId" type="text" disabled>
@@ -388,8 +388,10 @@
         <div class="col-10 col-md-5 col-lg-8 p-3 mt-3" style="background-color: white">
             <div class="row mt-1">
                 <div class="col-12 col-md-3 col-lg-2">
-                    <label class="fw-bold" for="txtOCustomerId">Customer ID</label>
-                    <input class="form-control border-dark" id="txtOCustomerId" type="text" disabled>
+                    <label class="fw-bold" for="cmbSelectCustomerId">Customer ID</label>
+                    <select aria-label="Default select example" class="form-select border-dark" id="cmbSelectCustomerId">
+                        <!--<option selected>-Select Customer-</option>-->
+                    </select>
                 </div>
                 <div class="col-12 col-md-3 col-lg-3">
                     <label class="fw-bold" for="txtOCustomerName">Customer Name</label>
@@ -439,8 +441,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-10 col-md-5 col-lg-3 p-3 mt-3" style="background-color: red">
-            <h3 class="text-center bg-success p-2 text-light">Place Order</h3>
+        <div class="col-10 col-md-5 col-lg-3 p-3 mt-3 ms-5" style="background-color: red">
+            <h3 class="text-center bg-primary p-2 text-light">Place Order</h3>
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6">
                     <label class="fw-bold" for="txtTotal">Total(Rs.)</label>
@@ -517,6 +519,25 @@
         $("#customer").css('display', 'none');
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'block');
+
+        function orderId() {
+            if (orderDB.length == 0) {
+                $("#txtOrderId").val("O-0001");
+            } else if (orderDB.length > 0) {
+                var orderId = orderDB[orderDB.length - 1].getOrderId().split("-")[1];
+                var tempId = parseInt(orderId);
+                tempId = tempId + 1;
+                if (tempId <= 9) {
+                    $("#txtOrderId").val("O-000" + tempId);
+                } else if (tempId <= 99) {
+                    $("#txtOrderId").val("O-00" + tempId);
+                } else if (tempId <= 999) {
+                    $("#txtOrderId").val("O-0" + tempId);
+                } else if (tempId <= 9999) {
+                    $("#txtOrderId").val("O-" + tempId);
+                }
+            }
+        }
     });
 
     /*Customer validation-----------------------------*/
@@ -597,27 +618,27 @@
                             return true;
                         } else {
                             $("#txtSalary").css('border', '2px solid red');
-                            $("#lblcustSalary").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                            $("#lblcustSalary").text("Customer Salary is a required field : Pattern 100.00");
                             return false;
                         }
                     } else {
                         $("#txtAddress").css('border', '2px solid red');
-                        $("#lblcustAddress").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                        $("#lblcustAddress").text("Customer Address is a required field : Pattern Galle or 04/galle");
                         return false;
                     }
                 } else {
                     $("#txtCustomerAge").css('border', '2px solid red');
-                    $("#lblcustAge").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                    $("#lblcustAge").text("Customer Age is a required field : Pattern 23");
                     return false;
                 }
             } else {
                 $("#txtCustomerName").css('border', '2px solid red');
-                $("#lblcustName").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                $("#lblcustName").text("Customer Name is a required field : Pattern padeepa");
                 return false;
             }
         } else {
             $("#txtCustomerId").css('border', '2px solid red');
-            $("#lblcustId").text("Cus Salary is a required field : Pattern 100.00 or 100");
+            $("#lblcustId").text("Customer ID is a required field : Pattern C00-001");
         }
 
     }
@@ -986,22 +1007,22 @@
                         return true;
                     } else {
                         $("#txtUnitPrice").css('border', '2px solid red');
-                        $("#lblItemUnitPrice").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                        $("#lblItemUnitPrice").text("Unit Price is a required field : Pattern 100.00");
                         return false;
                     }
                 } else {
                     $("#txtQty").css('border', '2px solid red');
-                    $("#lblItemQty").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                    $("#lblItemQty").text("Qty is a required field : Pattern 23");
                     return false;
                 }
             } else {
                 $("#txtItemName").css('border', '2px solid red');
-                $("#lblItemName").text("Cus Salary is a required field : Pattern 100.00 or 100");
+                $("#lblItemName").text("Item Name is a required field : Pattern samba");
                 return false;
             }
         } else {
             $("#txtItemId").css('border', '2px solid red');
-            $("#lblItemId").text("Cus Salary is a required field : Pattern 100.00 or 100");
+            $("#lblItemId").text("Item ID is a required field : Pattern I00-001");
         }
 
     }
@@ -1130,7 +1151,7 @@
             }
         }else {
             $("#txtUItemId").css('border', '2px solid red');
-            $("#lblUItemId").text("Item ID is a required field.Pattern : I00-0001");
+            $("#lblUItemId").text("Item ID is a required field.Pattern : I00-001");
             $("#btnUpdateItem").prop('disabled', true);
         }
     });
