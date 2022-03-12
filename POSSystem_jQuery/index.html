@@ -1337,7 +1337,7 @@
     $('#lblOrderDate').val(new Date().toISOString().slice(0, 10));
 
     var ifExistsCus = false;
-    var item = false;
+    var ifExistsitem = false;
     let selectedItem;
     let total = 0.00;
     let subTotal = 0.00;
@@ -1386,6 +1386,33 @@
         for (let i = 0; i < itemDB.length; i++) {
             $("#cmbSelectItemId").append(new Option(itemDB[i].getId(), i));
         }
+    }
+
+    $("#cmbSelectItemId").change(function () {
+        var id = $("#cmbSelectItemId").find('option:selected').text();
+        let srcItem = searchItem(id);
+        if (srcItem) {
+            ifExistsitem = true;
+            $("#txtOItemName").val(srcItem.getName());
+            $("#txtOItemQty").val(srcItem.getQty());
+            $("#txtOItemUnitPrice").val(srcItem.getUnitPrice());
+        }
+        if (ifExistsitem == false) {
+            $("#txtOItemName").val("");
+            $("#txtOItemQty").val("");
+            $("#txtOItemUnitPrice").val("");
+        }
+
+    });
+
+    function searchItem(id) {
+        for (let i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].getId() == id) {
+                ifExistsitem = true;
+                return itemDB[i];
+            }
+        }
+        ifExistsitem = false;
     }
 
 
