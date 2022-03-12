@@ -21,7 +21,22 @@
                 <a aria-current="page" class="nav-link active" id="home_page" style="cursor: pointer">Home</a>
                 <a class="nav-link" id="customer_page" style="cursor: pointer">Customer</a>
                 <a class="nav-link" id="item_page" style="cursor: pointer">Items</a>
-                <a class="nav-link" id="place_order_page" style="cursor: pointer">Orders</a>
+                <!--<a class="nav-link" id="place_order_page" style="cursor: pointer">Orders</a>-->
+                <li class="nav-item dropdown">
+                    <a aria-expanded="false" class="nav-link dropdown-toggle text-white" data-bs-toggle="dropdown"
+                       href="#"
+                       id="navbarDropdown" role="button">
+                        Other
+                    </a>
+                    <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
+                        <li class="nav-order" id="order">
+                            <a aria-current="page" class="nav-link active" style="cursor: pointer;">Order</a>
+                        </li>
+                        <li class="nav-placeOrder" id="place_order_page">
+                            <a aria-current="page" class="nav-link active" style="cursor: pointer;">Place Order</a>
+                        </li>
+                    </ul>
+                </li>
             </div>
         </div>
     </div>
@@ -520,7 +535,10 @@
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'block');
 
+
         orderId();
+        setCustomerIdComboBox();
+        setItemIdComboBox();
 
         /*function orderId() {
             if (orderDB.length == 0) {
@@ -541,6 +559,22 @@
             }
         }*/
     });
+
+    /*function setCustomerIdComboBox() {
+        $("#cmbSelectCustomerId").empty();
+        $("#cmbSelectCustomerId").append(new Option("-Select Customer-", ""));
+        for (let i = 0; i < customerDB.length; i++) {
+            $("#cmbSelectCustomerId").append(new Option(customerDB[i].getID(), i));
+        }
+    }
+
+    function setItemIdComboBox() {
+        $("#cmbSelectItemId").empty();
+        $("#cmbSelectItemId").append(new Option("-Select Item-", ""));
+        for (let i = 0; i < itemDB.length; i++) {
+            $("#cmbSelectItemId").append(new Option(itemDB[i].getId(), i));
+        }
+    }*/
 
     /*Customer validation-----------------------------*/
     /*Save Customer validation-----------------------------*/
@@ -1299,6 +1333,61 @@
             }
         }
     }
+
+    $('#lblOrderDate').val(new Date().toISOString().slice(0, 10));
+
+    var ifExistsCus = false;
+    var item = false;
+    let selectedItem;
+    let total = 0.00;
+    let subTotal = 0.00;
+    let orderDetailObject;
+
+    function setCustomerIdComboBox() {
+        $("#cmbSelectCustomerId").empty();
+        $("#cmbSelectCustomerId").append(new Option("-Select Customer-", ""));
+        for (let i = 0; i < customerDB.length; i++) {
+            $("#cmbSelectCustomerId").append(new Option(customerDB[i].getID(), i));
+        }
+    }
+
+    $("#cmbSelectCustomerId").change(function () {
+        var id = $("#cmbSelectCustomerId").find('option:selected').text();
+        let srcCustomer = searchCustomer(id);
+        if (srcCustomer) {
+            ifExistsCus = true;
+            $("#txtOCustomerName").val(srcCustomer.getName());
+            $("#txtOCustomerAge").val(srcCustomer.getAge());
+            $("#txtOCustomerAddress").val(srcCustomer.getAddress());
+            $("#txtOCustomerSalary").val(srcCustomer.getSalary());
+        }
+        if (ifExistsCus == false) {
+            $("#txtOCustomerName").val("");
+            $("#txtOCustomerAge").val("");
+            $("#txtOCustomerAddress").val("");
+            $("#txtOCustomerSalary").val("");
+        }
+
+    });
+
+    function searchCustomer(id) {
+        for (let i = 0; i < customerDB.length; i++) {
+            if (customerDB[i].getID() == id) {
+                ifExistsCus = true;
+                return customerDB[i];
+            }
+        }
+        ifExistsCus = false;
+    }
+
+    function setItemIdComboBox() {
+        $("#cmbSelectItemId").empty();
+        $("#cmbSelectItemId").append(new Option("-Select Item-", ""));
+        for (let i = 0; i < itemDB.length; i++) {
+            $("#cmbSelectItemId").append(new Option(itemDB[i].getId(), i));
+        }
+    }
+
 
 </script>
 </body>
