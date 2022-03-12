@@ -1,21 +1,13 @@
-function OrderDetails(orderId,date,custId,itemId,itemName,nOfQty,discount,netValue) {
+function OrderDetailsDTO(orderId,itemId,itemName,nOfQty,unitPrice,total) {
     var __orderId = orderId;
-    var __date = date;
-    var __custId = custId;
     var __itemId = itemId;
     var __itemName = itemName;
     var __nOfQty = nOfQty;
-    var __discount = discount;
-    var __netValue = netValue;
+    var __unitPrice = unitPrice;
+    var __total = total;
 
     this.getOrderId = function () {
         return __orderId;
-    }
-    this.getDate = function () {
-        return __date;
-    }
-    this.getCustId = function () {
-        return __custId;
     }
     this.getItemId = function () {
         return __itemId;
@@ -26,20 +18,14 @@ function OrderDetails(orderId,date,custId,itemId,itemName,nOfQty,discount,netVal
     this.getNOfQty = function () {
         return __nOfQty;
     }
-    this.getDiscount = function () {
-        return __discount;
+    this.getUnitPrice = function () {
+        return __unitPrice;
     }
-    this.getNetValue = function () {
-        return __netValue;
+    this.getTotal = function () {
+        return __total;
     }
     this.setOrderId = function (orderId) {
         __orderId = orderId;
-    }
-    this.setDate = function (date) {
-        __date = date;
-    }
-    this.setCustId = function (custId) {
-        __custId = custId;
     }
     this.setItemId = function (itemId) {
         __itemId = itemId;
@@ -50,10 +36,10 @@ function OrderDetails(orderId,date,custId,itemId,itemName,nOfQty,discount,netVal
     this.setNOfQty = function (nOfQty) {
         __nOfQty = nOfQty;
     }
-    this.setDiscount = function (discount) {
-        __discount = discount;
+    this.setUnitPrice = function (discount) {
+        __unitPrice = unitPrice;
     }
-    this.setNetValue = function (netValue) {
-        __netValue = netValue;
+    this.setTotal = function (netValue) {
+        __total = total;
     }
 }

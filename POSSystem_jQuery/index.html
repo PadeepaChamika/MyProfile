@@ -448,7 +448,7 @@
             <div class="row mt-1">
                 <div class="col-12 col-md-3 col-lg-3">
                     <label class="fw-bold" for="txtNumOfQty">Number Of Qty</label>
-                    <input class="form-control border-dark" id="txtNumOfQty" type="text" disabled>
+                    <input class="form-control border-dark" id="txtNumOfQty" type="text">
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <button class="btn btn-primary rounded-2" type="submit" id="btnAddToCart">Add To Cart</button>
@@ -490,8 +490,6 @@
     <table class="table table-hover">
         <thead>
         <tr>
-            <th scope="col">Customer Id</th>
-            <th scope="col">Customer Name</th>
             <th scope="col">Item Id</th>
             <th scope="col">Item Name</th>
             <th scope="col">Num.of Qty </th>
@@ -510,6 +508,8 @@
 
 <script src="model/CustomerDTO.js"></script>
 <script src="model/ItemDTO.js"></script>
+<script src="model/OrderDTO.js"></script>
+<script src="model/OrderDetailsDTO.js"></script>
 <script>
     $("#home_page").click(function () {
         $("#home").css('display', 'block');
@@ -1338,7 +1338,8 @@
 
     var ifExistsCus = false;
     var ifExistsitem = false;
-    let selectedItem;
+    let selectOrderItem;
+    /*let selectOrderCustomer;*/
     let total = 0.00;
     let subTotal = 0.00;
     let orderDetailObject;
@@ -1353,9 +1354,10 @@
 
     $("#cmbSelectCustomerId").change(function () {
         var id = $("#cmbSelectCustomerId").find('option:selected').text();
-        let srcCustomer = searchCustomer(id);
+        let srcCustomer = searchCustomerOrder(id);
         if (srcCustomer) {
             ifExistsCus = true;
+            selectOrderCustomer= srcCustomer;
             $("#txtOCustomerName").val(srcCustomer.getName());
             $("#txtOCustomerAge").val(srcCustomer.getAge());
             $("#txtOCustomerAddress").val(srcCustomer.getAddress());
@@ -1370,7 +1372,7 @@
 
     });
 
-    function searchCustomer(id) {
+    function searchCustomerOrder(id) {
         for (let i = 0; i < customerDB.length; i++) {
             if (customerDB[i].getID() == id) {
                 ifExistsCus = true;
@@ -1390,9 +1392,10 @@
 
     $("#cmbSelectItemId").change(function () {
         var id = $("#cmbSelectItemId").find('option:selected').text();
-        let srcItem = searchItem(id);
+        let srcItem = searchItemOrder(id);
         if (srcItem) {
             ifExistsitem = true;
+            selectOrderItem = srcItem;
             $("#txtOItemName").val(srcItem.getName());
             $("#txtOItemQty").val(srcItem.getQty());
             $("#txtOItemUnitPrice").val(srcItem.getUnitPrice());
@@ -1405,7 +1408,7 @@
 
     });
 
-    function searchItem(id) {
+    function searchItemOrder(id) {
         for (let i = 0; i < itemDB.length; i++) {
             if (itemDB[i].getId() == id) {
                 ifExistsitem = true;
@@ -1414,6 +1417,86 @@
         }
         ifExistsitem = false;
     }
+
+    $("#txtNumOfQty").on('keyup', function (eventOb) {
+        if (eventOb.key == "Enter") {
+            $("#btnAddToCart").attr("disabled", false);
+            if ($("#txtNumOfQty").val() <= $("#txtOItemQty").val()) {
+                if ($("#txtNumOfQty").val() != 0) {
+                    let oId = $("#lblOrderId").val();
+                    let oQty = $("#txtNumOfQty").val();
+                    total = total + oQty * selectOrderItem.getUnitPrice();
+                    let val = $("#txtOItemQty").val();
+                    $("#txtOItemQty").val(val - oQty);
+
+                    selectOrderItem = new OrderDetailsDTO(oId,selectOrderItem.getItemId(),selectOrderItem.getItemName(), oQty, selectOrderItem.getUnitPrice(), total);
+                    tempArray.push(selectOrderItem);
+                    addToCartT();
+
+                    $("#totalPrice").text("Total Price : Rs." + total);
+                    $("#subTotal").text("Sub Price- : Rs." + total);
+                } else {
+                    alert("Please enter order Qty....");
+                }
+            } else {
+                alert("Order Qty is higher than Qty On Hand...");
+            }
+        }
+    });
+
+    $("#btnAddToCart").click(function () {
+        if($("#txtNumOfQty").val() <= $("#txtOItemQty").val()) {
+            if ($("#txtNumOfQty").val() != "0") {
+                console.log("a");
+                let oId = $("#lblOrderId").val();
+                let oQty = $("#txtNumOfQty").val();
+                total = total + oQty * selectOrderItem.getUnitPrice();
+                let val = $("#txtOItemQty").val();
+                $("#txtOItemQty").val(val - oQty);
+
+
+                let selectItem = $("#cmbSelectItemId").find('option:selected').text();
+                var oCartTm = new OrderDetailsDTO(oId,selectItem,$("#txtOItemName").val(),oQty,$("#txtOItemUnitPrice").val(),total);
+                console.log(oCartTm.getOrderId(),oCartTm.getItemId(),oCartTm.getItemName(),oCartTm.getNOfQty(),oCartTm.getUnitPrice(),oCartTm.getTotal());
+                tempArray.push(oCartTm);
+                addToCartT();
+                $("#totalPrice").text("Total Price : Rs." + total);
+                $("#subTotal").text("Sub Price- : Rs." + total);
+            } else {
+                alert("Please enter order Qty....");
+            }
+            }else{
+                alert("Order Qty is higher than Qty On Hand...");
+            }
+    });
+
+    function addToCartT() {
+        $("#cartDetailsTable").empty();
+        for (var i=0; i<tempArray.length; i++) {
+            let row = `<tr><td>${tempArray[i].getItemId()}</td><td>${tempArray[i].getItemName()}</td><td>${tempArray[i].getNOfQty()}</td><td>${tempArray[i].getUnitPrice()}</td><td>${tempArray[i].getTotal()}</tr>`;
+            $("#cartDetailsTable").append(row);
+        }
+    }
+
+    $("#purchase").click(function () {
+        let res = confirm("Do you want to place the Order..?");
+        if (res) {
+            let OID = $("#inputOrderID").val();
+            let date = $("#inputDate").val();
+            let orderObject = new OrderDTO(OID, date, subTotal, orderDetailObject);
+            OrderDB.push(orderObject);
+            for (i = 0; i < tempArray.length; i++) {
+                var orderDetail = new OrderDetailDTO(OID, tempArray[i].getItemCodeOfDetails(), tempArray[i].getItemNameOfDetails(), tempArray[i].getPricePerUnit(), tempArray[i].getOrderQTY(), tempArray[i].getTPrice());
+                OrderDetailsDB.push(orderDetail);
+                manageQuantity(tempArray[i].getItemCodeOfDetails(), tempArray[i].getOrderQTY());//-------------------------------
+            }
+        }
+        $("#inputBalance").attr("disabled", true);
+        loadOrderDetailTable();
+        setOrderID();
+        //clearData();
+        loadAllOrders();
+    });
 
 
 </script>
