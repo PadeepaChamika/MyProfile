@@ -69,3 +69,18 @@ body{
 .oDate{
     width: 100vw;
 }
+.cartTMDiv{
+    height: 30vh;
+    position: relative;
+    overflow: auto;
+}
+.orderSection{
+    height: 100vh;
+    background: linear-gradient(to right, #0f0c29, #302b63, #24243e);
+    border: 2px solid white;
+}
+.orderTb{
+    height: 40vh;
+    position: relative;
+    overflow: auto;
+}

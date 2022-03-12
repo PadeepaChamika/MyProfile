@@ -29,7 +29,7 @@
                         Other
                     </a>
                     <ul aria-labelledby="navbarDropdown" class="dropdown-menu">
-                        <li class="nav-order" id="order">
+                        <li class="nav-order" id="order_page">
                             <a aria-current="page" class="nav-link active" style="cursor: pointer;">Order</a>
                         </li>
                         <li class="nav-placeOrder" id="place_order_page">
@@ -486,7 +486,7 @@
             </div>
         </div>
     </div>
-
+<div class="cartTMDiv">
     <table class="table table-hover">
         <thead>
         <tr>
@@ -500,7 +500,66 @@
         <tbody id="cartDetailsTable">
         </tbody>
     </table>
+</div>
 </section>
+
+<section class="orderSection" id="order">
+    <div class="orderTb">
+    <table class="table table-hover table-bordered">
+        <h1 class="sectionName mt-4">Order Table</h1>
+        <thead class="table-bordered">
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Item Id</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Net Total</th>
+        </tr>
+        </thead>
+        <tbody id="orderTable">
+        </tbody>
+    </table>
+    </div>
+    <div class="orderDetaisTb">
+        <table class="table table-hover table-bordered">
+            <h1 class="sectionName mt-4">Order Details Table</h1>
+            <thead class="table-bordered">
+            <tr>
+                <th scope="col">Order Id</th>
+                <th scope="col">Item Id</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Num.Of Qty</th>
+                <th scope="col">Unit Price</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody id="orderDetailsTable">
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<!--
+<section class="fourthSection" id="order" style="display: none">
+    <table class="table table-hover">
+        <h1 class="sectionName">Order Table></h1>
+        <thead>
+        <tr>
+            <th scope="col">Order Id</th>
+            <th scope="col">Date</th>
+            <th scope="col">Customer Id</th>
+            <th scope="col">Item Id</th>
+            <th scope="col">Item Name</th>
+            <th scope="col">Net Total</th>
+        </tr>
+        </thead>
+        <tbody id="orderTable">
+        </tbody>
+    </table>
+</section>
+-->
 
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
@@ -516,65 +575,42 @@
         $("#customer").css('display', 'none');
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'none');
+        $("#order").css('display', 'none');
     });
     $("#customer_page").click(function () {
         $("#home").css('display', 'none');
         $("#customer").css('display', 'block');
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'none');
+        $("#order").css('display', 'none');
     });
     $("#item_page").click(function () {
         $("#home").css('display', 'none');
         $("#customer").css('display', 'none');
         $("#item").css('display', 'block');
         $("#place_order").css('display', 'none');
+        $("#order").css('display', 'none');
     });
     $("#place_order_page").click(function () {
         $("#home").css('display', 'none');
         $("#customer").css('display', 'none');
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'block');
-
+        ("#order").css('display', 'none');
 
         orderId();
         setCustomerIdComboBox();
         setItemIdComboBox();
 
-        /*function orderId() {
-            if (orderDB.length == 0) {
-                $("#txtOrderId").val("O-0001");
-            } else if (orderDB.length > 0) {
-                var orderId = orderDB[orderDB.length - 1].getOrderId().split("-")[1];
-                var tempId = parseInt(orderId);
-                tempId = tempId + 1;
-                if (tempId <= 9) {
-                    $("#txtOrderId").val("O-000" + tempId);
-                } else if (tempId <= 99) {
-                    $("#txtOrderId").val("O-00" + tempId);
-                } else if (tempId <= 999) {
-                    $("#txtOrderId").val("O-0" + tempId);
-                } else if (tempId <= 9999) {
-                    $("#txtOrderId").val("O-" + tempId);
-                }
-            }
-        }*/
+    });
+    $("#order_page").click(function () {
+        $("#home").css('display', 'none');
+        $("#customer").css('display', 'none');
+        $("#item").css('display', 'none');
+        $("#place_order").css('display', 'none');
+        $("#order").css('display', 'block');
     });
 
-    /*function setCustomerIdComboBox() {
-        $("#cmbSelectCustomerId").empty();
-        $("#cmbSelectCustomerId").append(new Option("-Select Customer-", ""));
-        for (let i = 0; i < customerDB.length; i++) {
-            $("#cmbSelectCustomerId").append(new Option(customerDB[i].getID(), i));
-        }
-    }
-
-    function setItemIdComboBox() {
-        $("#cmbSelectItemId").empty();
-        $("#cmbSelectItemId").append(new Option("-Select Item-", ""));
-        for (let i = 0; i < itemDB.length; i++) {
-            $("#cmbSelectItemId").append(new Option(itemDB[i].getId(), i));
-        }
-    }*/
 
     /*Customer validation-----------------------------*/
     /*Save Customer validation-----------------------------*/
