@@ -1341,7 +1341,7 @@
     let selectOrderItem;
     /*let selectOrderCustomer;*/
     let total = 0.00;
-    let subTotal = 0.00;
+    let netTotal = 0.00;
     let orderDetailObject;
 
     function setCustomerIdComboBox() {
@@ -1429,9 +1429,14 @@
                     let val = $("#txtOItemQty").val();
                     $("#txtOItemQty").val(val - oQty);
 
-                    selectOrderItem = new OrderDetailsDTO(oId,selectOrderItem.getItemId(),selectOrderItem.getItemName(), oQty, selectOrderItem.getUnitPrice(), total);
-                    tempArray.push(selectOrderItem);
+
+                    let selectItem = $("#cmbSelectItemId").find('option:selected').text();
+                    var oCartTm = new OrderDetailsDTO(oId,selectItem,$("#txtOItemName").val(),oQty,$("#txtOItemUnitPrice").val(),total);
+                    console.log(oCartTm.getOrderId(),oCartTm.getItemId(),oCartTm.getItemName(),oCartTm.getNOfQty(),oCartTm.getUnitPrice(),oCartTm.getTotal());
+                    tempArray.push(oCartTm);
                     addToCartT();
+                    $("#txtTotal").val(total);
+                    $("#txtNetValue").val(total);
 
                     $("#totalPrice").text("Total Price : Rs." + total);
                     $("#subTotal").text("Sub Price- : Rs." + total);
@@ -1462,6 +1467,9 @@
                 addToCartT();
                 $("#txtTotal").val(total);
                 $("#txtNetValue").val(total);
+
+                $("#totalPrice").text("Total Price : Rs." + total);
+                $("#subTotal").text("Sub Price- : Rs." + total);
             } else {
                 alert("Please enter order Qty....");
             }
@@ -1481,30 +1489,42 @@
     $("#btnPlaceOrder").click(function () {
         let res = confirm("Do you want to place the Order..?");
         if (res) {
+            let selectCustomer = $("#cmbSelectCustomerId").find('option:selected').text();
+            let selectItem = $("#cmbSelectItemId").find('option:selected').text();
             let oId = $("#lblOrderId").val();
             let date = $("#lblOrderDate").val();
-            let orderObject = new OrderDTO(oId, date,subTotal);
-            OrderDTO.push(orderObject);
-            for (i = 0; i < tempArray.length; i++) {
-                var orderDetail = new OrderDetailDTO(OID, tempArray[i].getItemCodeOfDetails(), tempArray[i].getItemNameOfDetails(), tempArray[i].getPricePerUnit(), tempArray[i].getOrderQTY(), tempArray[i].getTPrice());
-                OrderDetailsDB.push(orderDetail);
-                manageQuantity(tempArray[i].getItemCodeOfDetails(), tempArray[i].getOrderQTY());//-------------------------------
+            let orderObject = new OrderDTO(oId,date,selectCustomer,selectItem,$("#txtOItemName").val(),netTotal);
+            orderDB.push(orderObject);
+            for (var i = 0; i < tempArray.length; i++) {
+                var orderDetail = new OrderDetailsDTO(oId,tempArray[i].getItemId(),tempArray[i].getItemName(),tempArray[i].getNOfQty(),tempArray[i].getUnitPrice(),total);
+                orderDetailsDB.push(orderDetail);
+                manageQuantity(tempArray[i].getItemId(), tempArray[i].getNOfQty());//-------------------------------
             }
         }
-        $("#inputBalance").attr("disabled", true);
-        loadOrderDetailTable();
-        setOrderID();
+        $("#txtNetValue").attr("disabled", true);
+        /*loadOrderDetailTable();*/
+        orderId();
         //clearData();
-        loadAllOrders();
+        /*loadAllOrders();*/
     });
 
     $("#txtDiscount").on('keyup', function (eventOb) {
         if (eventOb.key == "Enter") {
             let discount = $("#txtDiscount").val();
-            subTotal = total - discount;
-            $("#txtNetValue").val(subTotal);
+            netTotal = total - discount;
+            $("#txtNetValue").val(netTotal);
         }
     });
+
+    function manageQuantity(itemCode, numOfQty) {
+        for (var i = 0; i < itemDB.length; i++) {
+            if (itemDB[i].getId() == itemCode) {
+                let tempQty = parseInt(itemDB[i].getQty());
+                let qtyOnHand = tempQty - numOfQty;
+                itemDB[i].setQty(qtyOnHand);
+            }
+        }
+    }
 
 
 </script>

@@ -1,10 +1,10 @@
-function OrderDTO(orderId,date,custId,itemId,itemName,total) {
+function OrderDTO(orderId,date,custId,itemId,itemName,netTotal) {
     var __orderId = orderId;
     var __date = date;
     var __custId = custId;
     var __itemId = itemId;
     var __itemName = itemName;
-    var __total = total;
+    var __netTotal = netTotal;
 
     this.getOrderId = function () {
         return __orderId;
@@ -21,8 +21,8 @@ function OrderDTO(orderId,date,custId,itemId,itemName,total) {
     this.getItemName = function () {
         return __itemName;
     }
-    this.getTotal = function () {
-        return __total;
+    this.getNetTotal = function () {
+        return __netTotal;
     }
     this.setOrderId = function (orderId) {
         __orderId = orderId;
@@ -39,7 +39,7 @@ function OrderDTO(orderId,date,custId,itemId,itemName,total) {
     this.setItemName = function (itemName) {
         __itemName = itemName;
     }
-    this.setTotal = function (total) {
-        __total = total;
+    this.setNetTotal = function (total) {
+        __netTotal = netTotal;
     }
 }
