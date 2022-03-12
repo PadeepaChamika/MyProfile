@@ -1,4 +1,4 @@
-function Order(orderId,date,custId,itemId,itemName,total) {
+function OrderDTO(orderId,date,custId,itemId,itemName,total) {
     var __orderId = orderId;
     var __date = date;
     var __custId = custId;

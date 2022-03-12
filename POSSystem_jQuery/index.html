@@ -471,7 +471,7 @@
             <div class="row">
                 <div class="col-12 col-md-6 col-lg-6">
                     <label class="fw-bold" for="txtDiscount">Discount(%)</label>
-                    <input class="form-control border-dark" disabled id="txtDiscount" type="text">
+                    <input class="form-control border-dark" id="txtDiscount" type="text">
                 </div>
                 <div class="col-12 col-md-6 col-lg-6">
                     <label class="fw-bold" for="txtNetValue">Net Value</label>
@@ -1460,8 +1460,8 @@
                 console.log(oCartTm.getOrderId(),oCartTm.getItemId(),oCartTm.getItemName(),oCartTm.getNOfQty(),oCartTm.getUnitPrice(),oCartTm.getTotal());
                 tempArray.push(oCartTm);
                 addToCartT();
-                $("#totalPrice").text("Total Price : Rs." + total);
-                $("#subTotal").text("Sub Price- : Rs." + total);
+                $("#txtTotal").val(total);
+                $("#txtNetValue").val(total);
             } else {
                 alert("Please enter order Qty....");
             }
@@ -1478,13 +1478,13 @@
         }
     }
 
-    $("#purchase").click(function () {
+    $("#btnPlaceOrder").click(function () {
         let res = confirm("Do you want to place the Order..?");
         if (res) {
-            let OID = $("#inputOrderID").val();
-            let date = $("#inputDate").val();
-            let orderObject = new OrderDTO(OID, date, subTotal, orderDetailObject);
-            OrderDB.push(orderObject);
+            let oId = $("#lblOrderId").val();
+            let date = $("#lblOrderDate").val();
+            let orderObject = new OrderDTO(oId, date,subTotal);
+            OrderDTO.push(orderObject);
             for (i = 0; i < tempArray.length; i++) {
                 var orderDetail = new OrderDetailDTO(OID, tempArray[i].getItemCodeOfDetails(), tempArray[i].getItemNameOfDetails(), tempArray[i].getPricePerUnit(), tempArray[i].getOrderQTY(), tempArray[i].getTPrice());
                 OrderDetailsDB.push(orderDetail);
@@ -1496,6 +1496,14 @@
         setOrderID();
         //clearData();
         loadAllOrders();
+    });
+
+    $("#txtDiscount").on('keyup', function (eventOb) {
+        if (eventOb.key == "Enter") {
+            let discount = $("#txtDiscount").val();
+            subTotal = total - discount;
+            $("#txtNetValue").val(subTotal);
+        }
     });
 
 
