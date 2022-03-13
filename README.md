@@ -1,3 +1,12 @@
 #I'm a **Padeepa Chamika**
-##*Institute of **Software Engineering***
-![Image of Yaktocat](assets/images/pck.jpg)
+<html>
+<body>
+<main>
+<div><img src="assets/pc_1.png"></div>
+<div><img src="assets/pc_2.png"></div>
+<div><img src="assets/pc_3.png"></div>
+<div><img src="assets/pc_4.png"></div>
+<div><img src="assets/pc_5.png"></div>
+</main>
+</body>
+</html>
