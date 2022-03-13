@@ -229,7 +229,7 @@
     <div class="container-fluid">
         <div class="row d-flex flex-row justify-content-around">
             <div class="col-10 col-md-5 col-lg-5 ">
-                <label class="form-label" for="customerDataLists">Customer ID</label>
+                <label class="form-label" for="itemDataLists">Item ID</label>
                 <input class="form-control" id="itemDataLists" placeholder="Type to search...">
             </div>
             <div class="col-10 col-md-5 col-lg-5 ">
@@ -503,6 +503,7 @@
 </div>
 </section>
 
+<!---Order Tables-->
 <section class="orderSection" id="order">
     <div class="orderTb">
     <table class="table table-hover table-bordered">
@@ -540,27 +541,6 @@
     </div>
 </section>
 
-
-<!--
-<section class="fourthSection" id="order" style="display: none">
-    <table class="table table-hover">
-        <h1 class="sectionName">Order Table></h1>
-        <thead>
-        <tr>
-            <th scope="col">Order Id</th>
-            <th scope="col">Date</th>
-            <th scope="col">Customer Id</th>
-            <th scope="col">Item Id</th>
-            <th scope="col">Item Name</th>
-            <th scope="col">Net Total</th>
-        </tr>
-        </thead>
-        <tbody id="orderTable">
-        </tbody>
-    </table>
-</section>
--->
-
 <script src="assets/jQuery/jquery-3.6.0.min.js"></script>
 <script src="assets/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="db/db.js"></script>
@@ -596,7 +576,7 @@
         $("#customer").css('display', 'none');
         $("#item").css('display', 'none');
         $("#place_order").css('display', 'block');
-        ("#order").css('display', 'none');
+        $("#order").css('display', 'none');
 
         orderId();
         setCustomerIdComboBox();
@@ -1132,10 +1112,11 @@
 
     function setBtn() {
         let bt = formValids();
+        console.log(bt);
         if (bt) {
-            $("#btnSaveItem").attr('disable', false);
+            $("#btnSaveItem").prop('disable', false);
         } else {
-            $("#btnSaveItem").attr('disable', true);
+            $("#btnSaveItem").prop('disable', true);
         }
     }
 
@@ -1359,13 +1340,13 @@
             var tempId = parseInt(orderId);
             tempId = tempId + 1;
             if (tempId <= 9) {
-                $("#txtOrderId").val("O-000" + tempId);
+                $("#lblOrderId").val("O-000" + tempId);
             } else if (tempId <= 99) {
-                $("#txtOrderId").val("O-00" + tempId);
+                $("#lblOrderId").val("O-00" + tempId);
             } else if (tempId <= 999) {
-                $("#txtOrderId").val("O-0" + tempId);
+                $("#lblOrderId").val("O-0" + tempId);
             } else if (tempId <= 9999) {
-                $("#txtOrderId").val("O-" + tempId);
+                $("#lblOrderId").val("O-" + tempId);
             }
         }
     }
@@ -1375,7 +1356,6 @@
     var ifExistsCus = false;
     var ifExistsitem = false;
     let selectOrderItem;
-    /*let selectOrderCustomer;*/
     let total = 0.00;
     let netTotal = 0.00;
     let orderDetailObject;
@@ -1534,14 +1514,13 @@
             for (var i = 0; i < tempArray.length; i++) {
                 var orderDetail = new OrderDetailsDTO(oId,tempArray[i].getItemId(),tempArray[i].getItemName(),tempArray[i].getNOfQty(),tempArray[i].getUnitPrice(),total);
                 orderDetailsDB.push(orderDetail);
-                manageQuantity(tempArray[i].getItemId(), tempArray[i].getNOfQty());//-------------------------------
+                manageQuantity(tempArray[i].getItemId(), tempArray[i].getNOfQty());
             }
         }
         $("#txtNetValue").attr("disabled", true);
-        /*loadOrderDetailTable();*/
+        loadOrderTable();
+        loadOrderDetailTable();
         orderId();
-        //clearData();
-        /*loadAllOrders();*/
     });
 
     $("#txtDiscount").on('keyup', function (eventOb) {
@@ -1561,6 +1540,23 @@
             }
         }
     }
+
+    function loadOrderTable() {
+        $("#orderTable").empty();
+        for (var i = 0; i < orderDB.length; i++) {
+            let oTB = `<tr><td>${orderDB[i].getOrderId()}</td><td>${orderDB[i].getDate()}</td><td>${orderDB[i].getCustId()}</td><td>${orderDB[i].getItemId()}</td><td>${orderDB[i].getItemName()}</td><td>${orderDB[i].getNetTotal()}</td></tr>`
+            $("#orderTable").append(oTB);
+        }
+    }
+
+    function loadOrderDetailTable() {
+        $("#orderDetailsTable").empty();
+        for (var i = 0; i < orderDetailsDB.length; i++) {
+            let oDTB = `<tr><td>${orderDetailsDB[i].getOrderId()}</td><td>${orderDetailsDB[i].getItemId()}</td><td>${orderDetailsDB[i].getItemName()}</td><td>${orderDetailsDB[i].getNOfQty()}</td><td>${orderDetailsDB[i].getUnitPrice()}</td><td>${orderDetailsDB[i].getTotal()}</td></tr>`
+            $("#orderDetailsTable").append(oDTB);
+        }
+    }
+
 
 
 </script>
