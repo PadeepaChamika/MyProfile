@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Case_02</title>
+<style>
+        body {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            background-color: black;
+        }
+
+        body > div {
+            width: 1200px;
+            height: 350px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #firstDiv {
+            width: 175px;
+            height: 100px;
+            background-color: blue;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        #mainDiv{
+            width: 1200px;
+            height: 136px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        #mainDiv>hr:nth-child(3){
+            position: absolute;
+            bottom: 0;
+            width: inherit;
+        }
+
+        .middleDiv {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            width: 750px;
+            height: 100px;
+        }
+
+        .middleDiv > div {
+            width: 175px;
+        }
+
+        #secondDiv {
+            background-color: yellow;
+        }
+
+        #thirdDiv {
+            background-color: red;
+        }
+
+        #fourthDiv {
+            background-color: white;
+        }
+
+        #fifthDiv {
+            background-color: orange;
+        }
+
+        #sixthDiv {
+            background-color: grey;
+            width: 175px;
+            height: 100px;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="firstDiv"></div>
+    <div id="mainDiv">
+        <hr>
+        <div class="middleDiv">
+            <div id="secondDiv"></div>
+            <div id="thirdDiv"></div>
+            <div id="fourthDiv"></div>
+            <div id="fifthDiv"></div>
+        </div>
+        <hr>
+    </div>
+    <div id="sixthDiv"></div>
+</div>
+<script src="assets/jQuery/jquery-3.6.0.min.js"></script>
+<script>
+    var i = 0;
+
+    function colourChange() {
+        setTimeout(function () {
+            if (i == 0) {
+                $("#firstDiv").css('background-color', 'blue');
+                $("#secondDiv").css('background-color', 'yellow');
+                $("#thirdDiv").css('background-color', 'red');
+                $("#fourthDiv").css('background-color', 'white');
+                $("#fifthDiv").css('background-color', 'orange');
+                $("#sixthDiv").css('background-color', 'grey');
+                console.log("0");
+            }
+            if (i == 1) {
+                $("#firstDiv").css('background-color', 'grey');
+                $("#secondDiv").css('background-color', 'blue');
+                $("#thirdDiv").css('background-color', 'yellow');
+                $("#fourthDiv").css('background-color', 'red');
+                $("#fifthDiv").css('background-color', 'white');
+                $("#sixthDiv").css('background-color', 'orange');
+                console.log("1");
+            }
+            if (i == 2) {
+                $("#firstDiv").css('background-color', 'orange');
+                $("#secondDiv").css('background-color', 'grey');
+                $("#thirdDiv").css('background-color', 'blue');
+                $("#fourthDiv").css('background-color', 'yellow');
+                $("#fifthDiv").css('background-color', 'red');
+                $("#sixthDiv").css('background-color', 'white');
+                console.log("2");
+            }
+            if (i == 3) {
+                $("#firstDiv").css('background-color', 'white');
+                $("#secondDiv").css('background-color', 'orange');
+                $("#thirdDiv").css('background-color', 'grey');
+                $("#fourthDiv").css('background-color', 'blue');
+                $("#fifthDiv").css('background-color', 'yellow');
+                $("#sixthDiv").css('background-color', 'red');
+                console.log("3");
+            }
+            if (i == 4) {
+                $("#firstDiv").css('background-color', 'red');
+                $("#secondDiv").css('background-color', 'white');
+                $("#thirdDiv").css('background-color', 'orange');
+                $("#fourthDiv").css('background-color', 'grey');
+                $("#fifthDiv").css('background-color', 'blue');
+                $("#sixthDiv").css('background-color', 'yellow');
+                console.log("4");
+            }
+            if (i == 5) {
+                $("#firstDiv").css('background-color', 'yellow');
+                $("#secondDiv").css('background-color', 'red');
+                $("#thirdDiv").css('background-color', 'white');
+                $("#fourthDiv").css('background-color', 'orange');
+                $("#fifthDiv").css('background-color', 'grey');
+                $("#sixthDiv").css('background-color', 'blue');
+                console.log("5");
+            }
+            i++;
+            if (i < 6) {
+                colourChange();
+            }else{
+                i=0;
+                colourChange();
+            }
+        }, 750);
+    }
+
+    colourChange();
+
+
+
+</script>
+</body>
+</html>
+
+</body>
+</html>
