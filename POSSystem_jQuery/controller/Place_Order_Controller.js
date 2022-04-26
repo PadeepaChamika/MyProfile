@@ -24,7 +24,6 @@ var ifExistsitem = false;
 let selectOrderItem;
 let total = 0.00;
 let netTotal = 0.00;
-/*let itemCount = 0;*/
 
 function setCustomerIdComboBox() {
     $("#cmbSelectCustomerId").empty();

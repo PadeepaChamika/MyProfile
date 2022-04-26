@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery_UI</title>
+    <link rel="stylesheet" href="assets/jquery-ui.min.css">
+    <style>
+        #mainDiv{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+        }
+        #subDiv{
+            width: 100px;
+            height: 100px;
+            background-color:blue;
+        }
+        #img{
+            height: 500px;
+        }
+        #pic{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+<div id="mainDiv"></div>
+<div id="subDiv"></div>
+<div id="img">
+    <img id="pic" src="assets/images/maxresdefault.jpg" alt="">
+</div>
+<script src="assets/jquery-3.6.0.min.js"></script>
+<script src="assets/jquery-ui.min.js"></script>
+<script src="assets/oridomi.min.js"></script>
+<script>
+  $("#subDiv").draggable();
+  $( "#mainDiv" ).droppable({
+      drop: function( event, ui ) {
+          $( this ).css('background','black');/*.remove();*/
+      }
+  });
+
+ /* var folded = new OriDomi('#img');*/
+
+  var folded = new OriDomi('#img', {
+      vPanels:          5,     // number of panels when folding left or right (vertically oriented)
+      hPanels:          3,     // number of panels when folding top or bottom
+      speed:            1200,  // folding duration in ms
+      ripple:           2,     // backwards ripple effect when animating
+      shadingIntensity: .5,    // lessen the shading effect
+      perspective:      800,   // smaller values exaggerate 3D distortion
+      maxAngle:         40,    // keep the user's folds within a range of -40 to 40 degrees
+      shading:          'soft' // change the shading type
+  });
+  folded.accordion(30);
+</script>
+</body>
+</html>
