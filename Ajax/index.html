@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax</title>
+</head>
+<body>
+<h1>Hello Ajax</h1>
+<h2>Let's Implement Ajax with XMLHTTPRequest Object</h2>
+<button id="btn" type="button">send A Request</button>
+
+
+
+<script src="assets/jquery-3.6.0.min.js"></script>
+<script>
+    $("#btn").click(function () {
+
+        /*console.log("Request Star");*/
+      var http = new XMLHttpRequest();
+     /* console.log(http.readyState,"After the XMLHttpRequest Object Created");*/
+
+      http.open("Get","db/db.txt");
+      /*console.log(http.readyState,"After the Open Method ");*/
+
+      console.log(http.responseText);
+        /*console.log(http.readyState,"After the ResponseText");*/
+      /*http.responseText;*/
+
+      http.send();
+        /*console.log(http.readyState,"After the Send Method ");*/
+
+        http.onreadystatechange=function(){
+            http.readyState;
+            http.status;
+            /*console.log(http.readyState,"After the ResponseText");*/
+            /*console.log(http.responseText);*/
+
+            if(http.readyState == 4 && http.status==200){
+                console.log(http.responseText);
+            }
+        }
+
+        /*console.log("Request Finish");*/
+    });
+
+</script>
+</body>
+</html>
