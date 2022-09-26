@@ -1,0 +1,26 @@
+[
+  {
+  "id": "C001",
+  "name": "Dasun",
+  "address": "Galle",
+  "salary": 1000
+  },
+  {
+    "id": "C002",
+    "name": "Nimal",
+    "address": "Galle",
+    "salary": 2000
+  },
+  {
+    "id": "C003",
+    "name": "Kasun",
+    "address": "Matara",
+    "salary": 3000
+  },
+  {
+    "id": "C004",
+    "name": "Nimal",
+    "address": "Matara",
+    "salary": 4000
+  }
+]

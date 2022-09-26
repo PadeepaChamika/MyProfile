@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AJAX with jQuery</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+</head>
+<body>
+<section class="container">
+    <h1>Hello Ajax..</h1>
+    <div class="row">
+        <div class="col-2">
+            <button class="btn btn-danger" id="btn1">send request to file</button>
+        </div>
+        <div class="col">
+            <p id="display1"></p>
+        </div>
+    </div>
+
+    <hr>
+<!--XML FILE-->
+    <div class="row mt-3">
+        <div class="col-2">
+            <button class="btn btn-danger" id="btn2">send request to xml</button>
+        </div>
+        <div class="col">
+            <table class="table-bordered table-hover">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                </tr>
+                </thead>
+                <tbody id="tblCustomer">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+<!--JSON FILE-->
+    <div class="row mt-3">
+        <div class="col-2">
+            <button class="btn btn-danger" id="btn3">send request to JSON</button>
+        </div>
+        <div class="col">
+            <table class="table-bordered table-hover">
+                <thead class="bg-danger text-white">
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Customer Name</th>
+                    <th>Address</th>
+                    <th>Salary</th>
+                </tr>
+                </thead>
+                <tbody id="tblCustomerJSON">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+<script src="assets/jquery-3.6.0.min.js"></script>
+<script>
+    $("#btn1").click(function () {
+        console.log("stared");
+
+        $.ajax({
+            url:"db/db.txt",
+            success:function (resp) {
+                $("#display1").text(resp);
+                /*console.log(resp);*/
+            },
+            error:function (xhr) {
+                console.log(xhr);
+
+            }
+        });
+        console.log("Ended");
+    });
+
+    $("#btn2").click(function () {
+        $("#tblCustomer").empty();
+        $.ajax({
+            url: "db/db.xml",
+            success:function (resp) {
+                /*console.log(resp);*/
+                /*$(resp); jQuery document*/
+                for (let i = 0; i< $(resp).children().children().length; i++){
+                    var id = $(resp).children().children().eq(i).find("id").text();
+                    var name = $(resp).children().children().eq(i).find("name").text();
+                    var address = $(resp).children().children().eq(i).find("address").text();
+                    var salary = $(resp).children().children().eq(i).find("salary").text();
+                    console.log(id,name,address,salary);
+
+                    let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${salary}</td></tr>`;
+                    $("#tblCustomer").append(row);
+                }
+                /*console.log(let);
+                /!*console.log(resp);*!/*/
+            },
+            error:function (xhr) {
+                console.log(xhr);
+            }
+        });
+
+        /*console.log("Ended");*/
+
+    });
+
+    $("#btn3").click(function () {
+        $("#tblCustomerJSON").empty();
+        $.ajax({
+           url:"db/db.json",
+           success:function (resp) {
+               /*console.log(resp);*/
+               /*resp;*/
+               /*console.log(resp[0]);*/
+               for (var i in resp){
+                   var id = resp[i].id;
+                   var name = resp[i].name;
+                   var address = resp[i].address;
+                   var salary = resp[i].salary;
+                   /*console.log(id,name,address,salary);*/
+
+                   let row = `<tr><td>${id}</td><td>${name}</td><td>${address}</td><td>${salary}</td></tr>`;
+                   $("#tblCustomerJSON").append(row);
+               }
+
+           }
+        });
+    });
+</script>
+</body>
+</html>

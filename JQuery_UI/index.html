@@ -36,11 +36,11 @@
   $("#subDiv").draggable();
   $( "#mainDiv" ).droppable({
       drop: function( event, ui ) {
-          $( this ).css('background','black');/*.remove();*/
+          $( this ).css('background','black');/!*.remove();*!/
       }
   });
 
- /* var folded = new OriDomi('#img');*/
+ /!* var folded = new OriDomi('#img');*!/
 
   var folded = new OriDomi('#img', {
       vPanels:          5,     // number of panels when folding left or right (vertically oriented)

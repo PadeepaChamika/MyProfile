@@ -15,7 +15,7 @@
             background-color: #F0F1F2;
             z-index: 100;
         }
-        header>ul{
+        /*header>ul{
             position: absolute;
             top: 20px;
             left: 838px;
@@ -35,7 +35,27 @@
         header>ul>li>a{
             color: black;
             text-decoration: none;
+        }*/
+
+        header>nav>ul{
+            position: absolute;
+            margin: auto;
+            top: 15px;
+            right: 35px;
+            list-style: none;
         }
+        nav > ul > li {
+            display: inline-block;
+            padding-left: 35px;
+        }
+        nav > ul > li > a {
+            color: #A52A2A;
+            font-size: 23px;
+        }
+        nav > ul > li > a:hover {
+            font-weight: bold;
+        }
+
         body>main{
             position: relative;
             display: flex;
@@ -133,7 +153,7 @@
             bottom: 174px;
             margin: auto;
         }
-        body>main>section:nth-child(1)>div:nth-child(6){
+        /*body>main>section:nth-child(1)>div:nth-child(6){
             position: absolute;
             height: 50px;
             width: 337px;
@@ -141,11 +161,50 @@
             bottom: 21px;
             display: flex;
             justify-content: space-between;
-        }
+        }*/
         body>main>section:nth-child(1)>div:nth-child(6)>img{
             position: relative;
             width: 50px;
             height: 50px;
+        }
+        body>main>section:nth-child(1)>div:nth-child(6){
+           /* position: absolute;
+            display: flex;
+            width: 7vw;
+            height: 25vh;
+            left: 15vw;
+            right: 0;
+            top: 45vh;
+            bottom: 0;*/
+
+            position: absolute;
+            display: flex;
+            background: linear-gradient(145deg,#181f34,#1d243e);
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px #101523;
+            height: 28%;
+            width: 8%;
+            left: 35px;
+            bottom: 21px;
+
+            /*background-color: black;*/
+        }
+        body>main>section:nth-child(1)>div:nth-child(6)>aside>nav{
+            position: relative;
+            top: 0;
+        }
+        body>main>section:nth-child(1)>div:nth-child(6)>aside>nav>a{
+            color: var(--bs-link-color);
+            text-decoration: underline;
+        }
+        body>main>section:nth-child(1)>div:nth-child(6)>aside>nav>a>img{
+            color: #11C5D4;
+
+        }
+        body>main>section:nth-child(1)>div:nth-child(6)>aside>nav> a > img {
+            width: 7vw;
+            height: 8vh;
+            padding-right: 2vw;
         }
 
         body>main>section:nth-child(2){
@@ -162,9 +221,9 @@
             font-weight: bold;
             color: #8C3503;
             font-size: 40px;
-            left: 19px;
+            left: 0;
             right: 0;
-            top: 19px;
+            top: 100px;
             bottom: 0;
         }
         body>main>section:nth-child(2)>hr{
@@ -173,8 +232,8 @@
             position: absolute;
             background-color: black;
             left: 0;
-            right: 800px;
-            top: 34px;
+            right: 860px;
+            top: 115px;
             bottom: 0;
         }
         body>main>section:nth-child(2)>section:nth-child(3){
@@ -253,9 +312,9 @@
             font-weight: bold;
             color: #8C3503;
             font-size: 40px;
-            left: 19px;
+            left: 0;
             right: 0;
-            top: 19px;
+            top: 100px;
             bottom: 0;
         }
         body>main>section:nth-child(3)>hr{
@@ -264,22 +323,22 @@
             position: absolute;
             background-color: black;
             left: 0;
-            right: 800px;
-            top: 34px;
+            right: 860px;
+            top: 115px;
             bottom: 0;
         }
-        body>main>section:nth-child(3)>div{
+       /* body>main>section:nth-child(3)>div{
             position: absolute;
             width: 88vw;
             height: 88vh;
-            /*background-color: red;*/
+            !*background-color: red;*!
             left: 0;
             right: 0;
             top: 0;
             bottom: 0;
             margin: auto;
         }
-        body>main>section:nth-child(3)>div>section{
+        !*body>main>section:nth-child(3)>div>section{
             position: absolute;
             background-image: url("assets/images/pck3.jpg");
             background-size: cover;
@@ -291,7 +350,7 @@
             top: 0;
             bottom: 0;
             margin: auto;
-        }
+        }*!
         html, body{
             overflow-x: hidden;
         }
@@ -407,6 +466,64 @@
             font-size: 35px;
             left: 88px;
             top: 2px;
+        }*/
+
+        body>main>section:nth-child(3)>div{
+            position: absolute;
+            width: 90vw;
+            height: 60vh;
+            left: 0;
+            right: 0;
+            bottom: 30px;
+            margin: auto;
+            border: 2px solid #ea3131;
+            border-radius: 40px;
+
+            animation-name: up-down;
+            animation-direction: alternate;
+            animation-iteration-count: infinite;
+            animation-duration: 2s;
+        }
+        @keyframes up-down {
+            from{
+            }
+            to{
+                bottom: 50px;
+            }
+        }
+        .container-md{
+            max-width: 1215px;
+        }
+        .stack-card{
+            align-items: center;
+            background: linear-gradient(145deg,#181f34,#1d243e);
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px #101523;
+            display: flex;
+            height: 100%;
+            width: 200px;
+        }
+        .d-flex{
+            display: flex;
+        }
+        .flex-wrap{
+            flex-wrap: wrap!important;
+        }
+        .justify-content-evenly{
+            justify-content:space-evenly!important;
+        }
+        .text-center{
+            text-align: center!important;
+        }
+        .mb-3{
+            margin-bottom: 1rem!important;
+            margin-right: 3rem;
+        }
+        img{
+            width: 55%;
+        }
+        #icon-size{
+            height: 10vh;
         }
 
         body>main>section:nth-child(4){
@@ -423,9 +540,9 @@
             font-weight: bold;
             color: #8C3503;
             font-size: 40px;
-            left: 19px;
+            left: 0;
             right: 0;
-            top: 19px;
+            top: 100px;
             bottom: 0;
         }
         body>main>section:nth-child(4)>hr{
@@ -434,8 +551,8 @@
             position: absolute;
             background-color: black;
             left: 0;
-            right: 738px;
-            top: 34px;
+            right: 720px;
+            top: 115px;
             bottom: 0;
         }
         body>main>section:nth-child(4)>div{
@@ -565,9 +682,9 @@
             font-weight: bold;
             color: #8C3503;
             font-size: 40px;
-            left: 19px;
+            left: 0;
             right: 0;
-            top: 19px;
+            top: 100px;
             bottom: 0;
         }
         body>main>section:nth-child(5)>hr{
@@ -576,8 +693,8 @@
             position: absolute;
             background-color: black;
             left: 0;
-            right: 671px;
-            top: 34px;
+            right: 720px;
+            top: 115px;
             bottom: 0;
         }
         body>main>section:nth-child(5)>div{
@@ -589,7 +706,7 @@
             border-bottom: 3px solid black;
             left: 0;
             right: 0;
-            top: 0;
+            top: 90px;
             bottom: 0;
             margin: auto;
         }
@@ -1192,13 +1309,16 @@
 </head>
 <body>
 <header>
-    <ul>
-        <li><a href="#home_page">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-    </ul>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 <main>
     <section id="home_page">
@@ -1208,13 +1328,30 @@
         <hr>
         <div></div>
         <div>
+            <aside>
+                <nav>
+                    <a href="https://www.linkedin.com/in/padeepa-chamika-ba879a222/" target="_blank"><img
+                            src="assets/icon/linkedin.png"
+                            alt="linkedin">
+                    </a>
+                    <a href="https://github.com/PadeepaChamika" target="_blank"><img src="assets/icon/github.png"
+                                                                                     alt="github">
+                    </a>
+                    <a href="https://twitter.com/Padeepa98" target="_blank"><img src="assets/icon/twitter.png"
+                                                                                       alt="twitter">
+                    </a>
+                </nav>
+            </aside>
+        </div>
+
+        <!--<div>
            <img src="assets/icon/icons8-github-60.png">
             <img src="assets/icon/linkedin.png">
             <img src="assets/icon/whatsapp.png">
             <img src="assets/icon/facebook.png">
             <img src="assets/icon/instagram.png">
             <img src="assets/icon/slack.png">
-        </div>
+        </div>-->
     </section>
     <section id="about">
         <section>About</section>
@@ -1244,7 +1381,7 @@
     <section id="skills">
         <section>Skills</section>
         <hr>
-        <div>
+        <!--<div>
             <section></section>
             <div>
                 <p>Java</p>
@@ -1262,6 +1399,155 @@
                 <p>MySql</p>
                 <img src="assets/icon/mysql.png">
             </div>
+        </div>-->
+        <div>
+            <div class="container-md">
+                <div id="icon-size" data-aos="zoom-in" class="d-flex flex-wrap justify-content-evenly aos-init aos-animate">
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/java.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Java</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/download.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Python</p>
+                        </div></div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/js.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Javascript</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/html.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">HTML</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/css.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">CSS</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/spring.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Spring</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/download%20(1).png" alt="java logo">
+                </div>
+                    <div class="" style="width: 50%;">
+                        <p class="me-3">Bootstrap</p>
+                    </div>
+                </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/materialUI.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Material UI</p>
+                        </div>
+                    </div>
+                        <div class="mb-3 stack-card text-center">
+                            <div style="width: 40%;">
+                                <img src="assets/icon/postman.png" alt="java logo">
+                            </div>
+                            <div class="" style="width: 50%;">
+                                <p class="me-3">Postman</p>
+                            </div>
+                        </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/react.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">React</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/nodeJS.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Node.js</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;"><img src="assets/icon/mysql.png" alt="java logo"></div><div class="" style="width: 50%;"><p class="me-3">Express.js</p></div></div><div class="mb-3 stack-card text-center"><div style="width: 40%;"><img src="data:image/png;base64,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" alt="java logo">
+                </div>
+                    <div class="" style="width: 50%;">
+                        <p class="me-3">MySql</p>
+                    </div>
+                </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/mongoDB.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">MongoDB</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/git.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Git</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/github.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">GitHub</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/npm.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Npm</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/vsCode.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">VS Code</p>
+                        </div>
+                    </div>
+                    <div class="mb-3 stack-card text-center">
+                        <div style="width: 40%;">
+                            <img src="assets/icon/intellij.png" alt="java logo">
+                        </div>
+                        <div class="" style="width: 50%;">
+                            <p class="me-3">Intellij</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
         </div>
     </section>
     <section id="projects">
